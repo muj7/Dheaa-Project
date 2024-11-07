@@ -1,196 +1,226 @@
 * {
-    box-sizing: border-box;
-  }
-  
-  .primary-content-container, .main-content-section, .dynamic-activity-container1, .divine-message-container {
-    display: flex;
-    flex-direction: column;
-    align-items: stretch;
-    justify-content: flex-start;
-  }
-  
-  .primary-content-container {
-    flex-direction: row;
-    min-width: 1360px;
-    padding-bottom: 20px;
-    background: white;
-  }
-  
-  .sidebar-container, .header-section, .setting-container, .header-section1 {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    border-bottom: 1px solid #e2e8f0;
-  }
-  
-  .sidebar-container {
-    flex: 0 0 360px;
-    background: #fefefe;
-  }
-  
-  .header-section, .header-section1 {
-    padding: 0 24px;
-    height: 86px;
-  }
-  
-  .header-section1 {
-    padding-right: 31.5px;
-    padding-left: 31px;
-    border-bottom: 1px solid #cbd5e1;
-  }
-  
-  .header-with-logo {
-    display: flex;
-    align-items: center;
-  }
-  
-  .image-with-text-overlap, .avatar-image-with-border {
-    display: block;
-    object-fit: cover;
-    width: 52px;
-    height: 46px;
-    border: none;
-  }
-  
-  .avatar-image-with-border {
-    width: 41px;
-    height: 41px;
-    border: 0.5px solid black;
-    border-radius: 77px;
-  }
-  
-  .elegant-heading {
-    font: 700 30px/38px "Playfair Display SC", serif;
-    letter-spacing: -0.39px;
-    background: linear-gradient(180deg, rgba(185, 227, 237, 1) 0%, rgba(7, 109, 136, 1) 100%);
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    margin-left: 7px;
-  }
-  
-  .center-box-with-text, .center-box {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 40px;
-    padding: 0 8px;
-    border-radius: 123px;
-    border: 1px solid #cbd5e1;
-  }
-  
-  .center-box {
-    background: #09a6ae;
-    margin-left: 12px;
-    text-align: center;
-  }
-  
-  .bold-blue-heading {
-    font: 700 18px "Plus Jakarta Sans", sans-serif;
-    color: #5fa8ba;
-    letter-spacing: -0.14px;
-  }
-  
-  .bold-title {
-    font: 700 16px "Plus Jakarta Sans", sans-serif;
-    color: #1e293b;
-    margin-left: 8px;
-  }
-  
-  .dynamic-activity-section {
-    display: flex;
-    flex-direction: column;
-    padding: 24px;
-    border-bottom: 1px solid #cbd5e1;
-  }
-  
-  .dynamic-content-section {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    justify-content: space-between;
-  }
-  
-  .dynamic-content-heading {
-    font: 700 18px "Plus Jakarta Sans", sans-serif;
-    color: #1e293b;
-    letter-spacing: -0.14px;
-  }
-  
-  .activity-count-info-text-style, .activity-content-text-style, .insight-card-subtitle {
-    font: 500 16px "Plus Jakarta Sans", sans-serif;
-    color: #475569;
-    letter-spacing: -0.11px;
-  }
-  
-  .activity-section {
-    margin-top: 24px;
-  }
-  
-  .radiant-text-heading, .radiant-text {
-    font: 700 38px Lateef, serif;
-    text-align: center;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
-  
-  .radiant-text-heading {
-    background: linear-gradient(90deg, rgba(194, 238, 241, 1) 0%, rgba(97, 178, 197, 1) 100%);
-  }
-  
-  .radiant-text {
-    background: linear-gradient(83.27deg, rgba(194, 238, 241, 1) 10.65%, rgba(97, 178, 197, 1) 94.36%);
-  }
-  
-  .setting-container {
-    display: flex;
-    align-items: center;
-    padding: 0 21px;
-    height: 92px;
-  }
-  
-  .message-container {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 20px;
-    height: 64px;
-    margin-top: 289px;
-    background: white;
-    border: 1px solid #cbd5e1;
-    border-radius: 9999px;
-    box-shadow: 0px 2px 4px rgba(23, 23, 23, 0.06), 0px 4px 8px rgba(23, 23, 23, 0.1);
-  }
-  
-  .message-input, .bold-blue-heading, .activity-content-text-style {
-    font: 500 16px "Plus Jakarta Sans", sans-serif;
-    color: #475569;
-  }
-  
-  .send-button {
-    background-color: #09a6ae;
-    color: white;
-    border: none;
-    border-radius: 123px;
-    cursor: pointer;
-    padding: 0 8px;
-    margin-left: 600px;
-  }
-  
-  .svg-container, .svg-container1, .svg-container2, .svg-container3, .svg-container4 {
-    width: 24px;
-    height: 24px;
-  }
-  
-  .svg-container2 {
-    width: 32px;
-    height: 32px;
-  }
-  
-  .svg-container3 {
-    color: #94a3b8;
-  }
-  
-  .svg-container4 {
-    color: #ffffff;
-  }
-  
+  box-sizing: border-box;
+}
+
+.primary-content-container,
+.main-content-section,
+.dynamic-activity-container1,
+.divine-message-container {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+}
+
+.primary-content-container {
+  flex-direction: row;
+  min-width: 1360px;
+  padding-bottom: 20px;
+  background: white;
+}
+
+.sidebar-container,
+.header-section,
+.setting-container,
+.header-section1 {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid e2e8f0;
+}
+
+.sidebar-container {
+  flex: 0 0 360px;
+  background: fefefe;
+}
+
+.header-section,
+.header-section1 {
+  padding: 0 24px;
+  height: 86px;
+}
+
+.header-section1 {
+  padding-right: 31.5px;
+  padding-left: 31px;
+  border-bottom: 1px solid cbd5e1;
+}
+
+.header-with-logo {
+  display: flex;
+  align-items: center;
+}
+
+.image-with-text-overlap,
+.avatar-image-with-border {
+  display: block;
+  object-fit: cover;
+  width: 52px;
+  height: 46px;
+  border: none;
+}
+
+.avatar-image-with-border {
+  width: 41px;
+  height: 41px;
+  border: 0.5px solid black;
+  border-radius: 77px;
+}
+
+.elegant-heading {
+  font: 700 30px/38px "Playfair Display SC", serif;
+  letter-spacing: -0.39px;
+  background: linear-gradient(
+    180deg,
+    rgba(185, 227, 237, 1) 0%,
+    rgba(7, 109, 136, 1) 100%
+  );
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-left: 7px;
+}
+
+.center-box-with-text,
+.center-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 40px;
+  padding: 0 8px;
+  border-radius: 123px;
+  border: 1px solid cbd5e1;
+}
+
+.center-box {
+  background: 09a6ae;
+  margin-left: 12px;
+  text-align: center;
+}
+
+.bold-blue-heading {
+  font: 700 18px "Plus Jakarta Sans", sans-serif;
+  color: 5fa8ba;
+  letter-spacing: -0.14px;
+}
+
+.bold-title {
+  font: 700 16px "Plus Jakarta Sans", sans-serif;
+  color: 1e293b;
+  margin-left: 8px;
+}
+
+.dynamic-activity-section {
+  display: flex;
+  flex-direction: column;
+  padding: 24px;
+  border-bottom: 1px solid cbd5e1;
+}
+
+.dynamic-content-section {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  justify-content: space-between;
+}
+
+.dynamic-content-heading {
+  font: 700 18px "Plus Jakarta Sans", sans-serif;
+  color: 1e293b;
+  letter-spacing: -0.14px;
+}
+
+.activity-count-info-text-style,
+.activity-content-text-style,
+.insight-card-subtitle {
+  font: 500 16px "Plus Jakarta Sans", sans-serif;
+  color: 475569;
+  letter-spacing: -0.11px;
+}
+
+.activity-section {
+  margin-top: 24px;
+}
+
+.radiant-text-heading,
+.radiant-text {
+  font: 700 38px Lateef, serif;
+  text-align: center;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.radiant-text-heading {
+  background: linear-gradient(
+    90deg,
+    rgba(194, 238, 241, 1) 0%,
+    rgba(97, 178, 197, 1) 100%
+  );
+}
+
+.radiant-text {
+  background: linear-gradient(
+    83.27deg,
+    rgba(194, 238, 241, 1) 10.65%,
+    rgba(97, 178, 197, 1) 94.36%
+  );
+}
+
+.setting-container {
+  display: flex;
+  align-items: center;
+  padding: 0 21px;
+  height: 92px;
+}
+
+.message-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  height: 64px;
+  margin-top: 289px;
+  background: white;
+  border: 1px solid cbd5e1;
+  border-radius: 9999px;
+  box-shadow: 0px 2px 4px rgba(23, 23, 23, 0.06),
+    0px 4px 8px rgba(23, 23, 23, 0.1);
+}
+
+.message-input,
+.bold-blue-heading,
+.activity-content-text-style {
+  font: 500 16px "Plus Jakarta Sans", sans-serif;
+  color: 475569;
+}
+
+.send-button {
+  background-color: 09a6ae;
+  color: white;
+  border: none;
+  border-radius: 123px;
+  cursor: pointer;
+  padding: 0 8px;
+  margin-left: 600px;
+}
+
+.svg-container,
+.svg-container1,
+.svg-container2,
+.svg-container3,
+.svg-container4 {
+  width: 24px;
+  height: 24px;
+}
+
+.svg-container2 {
+  width: 32px;
+  height: 32px;
+}
+
+.svg-container3 {
+  color: 94a3b8;
+}
+
+.svg-container4 {
+  color: ffffff;
+}
