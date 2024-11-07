@@ -1,3 +1,3 @@
 # Dheaa Project
 
-Dheaa` is chatBot to help user answers queries about Ayat of The Holy Quran. Explain the language meaning of ayats and tafsser of it, this will help to better undrstand messages from Allah. The model be traine on Ayats and different books of tafsser like . This project done with Allam Challenge was it is aim to product project thourgh Allam model, Allam is arabic AI model.
+Dheaa is a chatbot that helps users answer queries about the ayahts of the Holy Quran. It explains the meaning of the ayahts and tafsir, which will help users better understand messages from Allah. The model is trained on Ayats and different books of tafsir like Alqurtubi, ibn Kathir, and muyassar. This project was done with the Allam Challenge as it aims to produce a product using the Allam model an Arabic AI model.
