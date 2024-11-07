@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ar">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quran Interpretation Bot</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <!-- Sidebar for Prompts -->
+      <div class="sidebar">
+        <!-- Logo -->
+        <div class="picture-frame">
+          <img src="Logo.png" alt="The Logo" />
+          <h4>DHEAA</h4>
+        </div>
+        <div class="prompt-section">
+          <h2>Last Activity</h2>
+          <ul id="latest-prompts">
+            <li>How are you?</li>
+            <li>What's the weather like?</li>
+            <li>Tell me a joke.</li>
+          </ul>
+        </div>
+        <div class="prompt-section">
+          <h2>Favorite</h2>
+          <ul id="favorite-prompts">
+            <li>What's the time?</li>
+            <li>Translate this phrase.</li>
+            <li>Explain AI to me.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Chat Area -->
+      <div class="chat-area">
+        <div class="chat-box" id="chat-box">
+          <div id="welcome-message">
+            اهلاً في اي درب قرآني تبحث عن الضياء؟ دعني اكون دليلك
+          </div>
+          <div class="message user-message"></div>
+          <div class="message bot-message"></div>
+        </div>
+        <input
+          type="text"
+          id="chat-input"
+          placeholder="Type your message here..."
+        />
+        <button id="send-button">Send</button>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
