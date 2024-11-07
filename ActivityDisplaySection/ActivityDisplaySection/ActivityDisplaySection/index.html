@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display+SC:wght@700" />
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700" />
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400" />
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lateef:wght@700" />
+
+    <meta charset="UTF-8" />
+
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+    <!--[if !mso]><!-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!--<![endif]-->
+
+    <meta name="x-apple-disable-message-reformatting" />
+
+    <style>
+      .primary-content-container {
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+        justify-content: flex-start;
+        min-width: 1360px;
+        padding-bottom: 20px;
+        background: white;
+      }
+      .sidebar-container {
+        box-sizing: border-box;
+        display: flex;
+        flex: 0 0 360px;
+        flex-direction: column;
+        align-items: stretch;
+        justify-content: flex-start;
+        background: #fefefe;
+        border-right: 1px solid #e2e8f0;
+        margin-left: auto;
+
+      }
+      .header-section {
+        box-sizing: border-box;
+        display: flex;
+        flex: 0 0 auto;
+        flex-direction: row;
+        gap: 8px;
+        align-items: center;
+        justify-content: space-between;
+        height: 86px;
+        padding-right: 24px;
+        padding-left: 24px;
+      }
+      .header-with-logo {
+        display: flex;
+        flex: 0 0 auto;
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-start;
+      }
+      .image-with-text-overlap {
+        box-sizing: border-box;
+        display: block;
+        width: 52px;
+        max-width: initial;
+        height: 46px;
+        border: none;
+        object-fit: cover;
+      }
+      .elegant-heading {
+        flex: 0 0 auto;
+        padding: 0;
+        margin: 0;
+        margin-left: 7px;
+        font: 700 30px/38px "Playfair Display SC", serif;
+        letter-spacing: -0.39px;
+        background: linear-gradient(180deg, rgba(185, 227, 237, 1) 0%, rgba(7, 109, 136, 1) 100%);
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+      .center-box-with-text {
+        box-sizing: border-box;
+        display: flex;
+        flex: 0 0 auto;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 40px;
+        padding-right: 8px;
+        padding-left: 8px;
+        border: 1px solid #cbd5e1;
+        border-radius: 123px;
+      }
+      .svg-container {
+        display: flex;
+        flex: 0 0 auto;
+        width: 24px;
+        height: 24px;
+        color: #475569;
+      }
+      .dynamic-activity-container {
+        flex: 0 0 auto;
+      }
+      .dynamic-activity-container1 {
+        box-sizing: border-box;
+        width: 100%;
+        border: 1px solid #cbd5e1;
+      }
+      .dynamic-activity-section {
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        justify-content: flex-start;
+        width: 100%;
+        padding: 24px 24px 20px 23px;
+        border-bottom: 1px solid #cbd5e1;
+      }
+      .dynamic-content-section {
+        display: flex;
+        flex: 0 0 auto;
+        flex-direction: row;
+        gap: 8px;
+        align-items: center;
+        justify-content: space-between;
+      }
+      .dynamic-content-heading {
+        flex: 0 0 auto;
+        padding: 0;
+        margin: 0;
+        font: 700 18px "Plus Jakarta Sans", sans-serif;
+        color: #1e293b;
+        letter-spacing: -0.14px;
+        white-space: pre-wrap;
+      }
+      .activity-count-info-text-style {
+        flex: 0 0 auto;
+        padding: 0;
+        margin: 0;
+        font: 500 16px "Plus Jakarta Sans", sans-serif;
+        color: #475569;
+        letter-spacing: -0.11px;
+        white-space: pre-wrap;
+      }
+      .svg-container1 {
+        display: flex;
+        flex: 0 0 auto;
+        width: 24px;
+        height: 24px;
+        margin-left: 7px;
+        color: #1e293b;
+      }
+      .activity-section {
+        flex: 0 0 auto;
+        margin-top: 24px;
+
+      }
+      .activity-content-text-style {
+        padding: 0;
+        margin: 0;
+        font: 500 16px "Plus Jakarta Sans", sans-serif;
+        color: #1e293b;
+        letter-spacing: -0.11px;
+        white-space: pre-wrap;
+      }
+      .insight-card-subtitle {
+        padding: 0;
+        margin: 0;
+        margin-top: 24px;
+        font: 500 16px "Plus Jakarta Sans", sans-serif;
+        color: #1e293b;
+        letter-spacing: -0.11px;
+        white-space: pre-wrap;
+      }
+      .setting-container {
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-start;
+        width: 100%;
+        height: 92px;
+        padding-right: 21px;
+        padding-left: 21px;
+      }
+      .svg-container2 {
+        display: flex;
+        flex: 0 0 auto;
+        width: 32px;
+        height: 32px;
+      }
+      .bold-title {
+        flex: 0 0 auto;
+        padding: 0;
+        margin: 0;
+        margin-left: 8px;
+        font: 700 16px "Plus Jakarta Sans", sans-serif;
+        color: #1e293b;
+        letter-spacing: -0.11px;
+      }
+      .main-content-section {
+        box-sizing: border-box;
+        display: flex;
+        flex: 0 0 1000px;
+        flex-direction: column;
+        align-items: stretch;
+        justify-content: flex-start;
+      }
+      .header-section1 {
+        box-sizing: border-box;
+        display: flex;
+        flex: 0 0 auto;
+        flex-direction: row;
+        gap: 8px;
+        align-items: center;
+        justify-content: space-between;
+        height: 80px;
+        padding-right: 31.5px;
+        padding-left: 31px;
+        border-bottom: 1px solid #cbd5e1;
+      }
+      .bold-blue-heading {
+        flex: 0 0 auto;
+        padding: 0;
+        margin: 0;
+        font: 700 18px "Plus Jakarta Sans", sans-serif;
+        color: #5fa8ba;
+        letter-spacing: -0.14px;
+        margin-left: 1000px;
+
+      }
+      .avatar-image-with-border {
+        box-sizing: border-box;
+        display: block;
+        width: 41px;
+        max-width: initial;
+        height: 41px;
+        border: 0.5px solid black;
+        border-radius: 77px;
+        object-fit: cover;
+      }
+      .divine-guide-container {
+        display: flex;
+        flex: 0 0 auto;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        margin-top: 287px;
+      }
+      .divine-message-container {
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        justify-content: flex-start;
+        min-width: 808px;
+      }
+      .arabic-text-container {
+        box-sizing: border-box;
+        flex: 0 0 auto;
+        align-self: center;
+        max-width: 347px;
+        padding: 0;
+        margin: 0;
+        color: black;
+        text-align: center;
+      }
+      .arabic-heading-styles {
+        font: 700 38px Lateef, serif;
+        color: #60b1c5;
+        text-align: center;
+      }
+      .radiant-text-heading {
+        font: 700 38px Lateef, serif;
+        text-align: center;
+        background: linear-gradient(90deg, rgba(194, 238, 241, 1) 0%, rgba(97, 178, 197, 1) 100%);
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+      .radiant-text {
+        font: 700 38px Lateef, serif;
+        text-align: center;
+        background: linear-gradient(83.27deg, rgba(194, 238, 241, 1) 10.65%, rgba(97, 178, 197, 1) 94.36%);
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+      .message-container {
+        box-sizing: border-box;
+        display: flex;
+        flex: 0 0 auto;
+        flex-direction: row;
+        gap: 8px;
+        align-items: center;
+        justify-content: space-between;
+        height: 64px;
+        padding-right: 12px;
+        padding-left: 20px;
+        margin-top: 120px;
+        background: white;
+        border: 1px solid #cbd5e1;
+        border-radius: 9999px;
+        box-shadow: 0px 2px 4px rgba(23, 23, 23, 0.06), 0px 4px 8px rgba(23, 23, 23, 0.1);
+      }
+      .message-input {
+  flex: 1;
+  border: none;
+  outline: none;
+  font-size: 16px;
+  text-align: right; /* Aligns placeholder text to the right */
+  direction: rtl;
+}
+
+.send-button {
+  background-color: #09a6ae;
+  color: white;
+  border: none;
+  border-radius: 123px;
+  cursor: pointer;
+  padding-right: 8px;
+  padding-left: 8px;
+  margin-right: 600px;
+  width: 40px;
+  height: 40px;
+  font-size: 29px
+
+      }
+
+    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+  <body dir="rtl">
+    <div style="display: inline-block; width: 1360px" data-ignore="used only for top most containter width">
+      <div class="primary-content-container">
+        <div class="sidebar-container">
+          <div class="header-section">
+            <div class="header-with-logo">
+              <img src="https://s3-alpha-sig.figma.com/img/f7af/e370/3a7f95684162bda5b59d0bebbb1bcf09?Expires=1731283200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=FeG6bPaA-~EzwYjE2lnf9jNkG-e-dp16NzxZWDSJRR2CIVBUZC53lWyc32nKHpbhQsu8tTTerU5pI2fhQ-jcO2bNdgbPpO2niENE54vWxjLUHllJIWme2g-DLQl5zB3z-2Y94NcQLoqOsxiXt-7XcWUXZOFkvRo1A3oKXxstRcgj4GTdZgVuJlhQLDYQ3SeREqNxXh7Li~Nm4d2w2Y5MvYy8-T03nChpfsmKKJW8jWVJ~RiYd7T5nOSuN5pA6uWdGlAGu9ZfKFZmdZoBsfMWvEa3Rone8KjTv433vx64kRISsJT6kwhsggYdEgsy-903x8Wlw0tBaLJ1ioLFI4CPuw__" class="image-with-text-overlap" />
+              <p class="elegant-heading">ضِياء</p>
+            </div>
+            <div class="center-box-with-text">
+              <div class="svg-container">
+                <svg viewBox="0 0 24 24" x="0" y="0" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <g id="Monotone add" data-node-id="I7:258;5590:22014" xmlns="http://www.w3.org/2000/svg">
+                    <path id="Vector" data-node-id="I7:258;5590:22014;5578:149310" d="M14.768,2.4566v0c0.17,-0.1699 0.371,-0.3046 0.593,-0.3965c0.222,-0.0919 0.46,-0.1392 0.7,-0.1392c0.24,0 0.478,0.0473 0.7,0.1392c0.221,0.0919 0.423,0.2266 0.593,0.3965l0.033,-0.0332l-0.033,0.0332l4.188,4.1897c0.343,0.3428 0.536,0.8077 0.536,1.2924c0,0.4848 -0.193,0.9497 -0.536,1.2925l-11.56,11.5613v0.0001c-0.169,0.1703 -0.371,0.3053 -0.592,0.3972c-0.222,0.092 -0.46,0.139 -0.7,0.1383v0h-4.19c-0.485,0 -0.95,-0.1926 -1.293,-0.5354c-0.343,-0.3429 -0.535,-0.8079 -0.535,-1.2927v-4.1897v-0.0001c-0.001,-0.2401 0.046,-0.478 0.138,-0.6998c0.092,-0.2219 0.227,-0.4232 0.397,-0.5925l0.001,-0.0001zM8.531,19.1719h0.02l0.013,-0.0138l7.875,-7.875l0.034,-0.0331l-0.034,-0.0331l-3.656,-3.6563l-0.033,-0.0331l-0.033,0.0331l-7.875,7.875l-0.014,0.0137v0.0194v3.6563v0.0469h0.047zM17.967,9.6894l0.033,0.0331l0.033,-0.0331l1.72,-1.7194l0.033,-0.0331l-0.033,-0.0332l-3.657,-3.6562l-0.033,-0.0332l-0.033,0.0332l-1.719,1.7194l-0.034,0.0331l0.034,0.0331zM4.5,21.375h4.19l-5.516,-7.3903c-0.174,0.1736 -0.313,0.3802 -0.407,0.6077c-0.095,0.2276 -0.143,0.4716 -0.142,0.7179v4.1897c0,0.4973 0.198,0.9742 0.549,1.3258c0.352,0.3517 0.829,0.5492 1.326,0.5492z" fill="currentColor" stroke="currentColor" stroke-width="0.09375" />
+                  </g>
+                </svg>
+              </div>
+            </div>
+          </div>
+          <div class="dynamic-activity-container">
+            <div class="dynamic-activity-container1">
+              <!-- Repeated elements detected. These are rendered using loops & conditions in the React tab -->
+              <div class="dynamic-activity-section">
+                <div class="dynamic-content-section">
+                  <p class="dynamic-content-heading">آخر محادثة</p>
+                  <div class="header-with-logo">
+                    <div class="svg-container1">
+                      <svg viewBox="0 0 24 24" x="0" y="0" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <g id="CaretDown" data-node-id="7:264" xmlns="http://www.w3.org/2000/svg">
+                          <path id="Vector_2" data-node-id="I7:264;5577:144009" d="M20.296,9.796l-7.5,7.5c-0.105,0.105 -0.229,0.188 -0.366,0.245c-0.136,0.057 -0.283,0.086 -0.431,0.086c-0.148,0 -0.295,-0.029 -0.431,-0.086c-0.137,-0.057 -0.261,-0.14 -0.366,-0.245l-7.5,-7.5c-0.211,-0.211 -0.33,-0.498 -0.33,-0.797c0,-0.299 0.119,-0.585 0.33,-0.797c0.211,-0.211 0.498,-0.33 0.797,-0.33c0.299,0 0.586,0.119 0.797,0.33l6.704,6.704l6.704,-6.705c0.211,-0.211 0.498,-0.33 0.797,-0.33c0.299,0 0.585,0.119 0.797,0.33c0.211,0.212 0.33,0.498 0.33,0.797c0,0.299 -0.119,0.586 -0.33,0.797z" fill="currentColor" />
+                        </g>
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+                <div class="activity-section">
+                  <p class="activity-content-text-style">تفسير سورة البقرة</p>
+                  <p class="insight-card-subtitle">تفسير اية 23 من سورة النحل</p>
+                  <p class="insight-card-subtitle">من المقصود في اية “ فَوَجَدَا عَبْدًا مِّنْ عِبَادِنَا آتَيْنَاهُ رَحْ.</p>
+                  <p class="insight-card-subtitle">اشرح لي اية 114 من سورة المائدة</p>
+                </div>
+              </div>
+              <div class="dynamic-activity-section">
+                <div class="dynamic-content-section">
+                  <p class="dynamic-content-heading">المفضلة</p>
+                  <div class="header-with-logo">
+                    <div class="svg-container1">
+                      <svg viewBox="0 0 24 24" x="0" y="0" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <g id="CaretDown_2" data-node-id="7:280" xmlns="http://www.w3.org/2000/svg">
+                          <path id="Vector_3" data-node-id="I7:280;5577:144009" d="M20.296,9.796l-7.5,7.5c-0.105,0.105 -0.229,0.188 -0.366,0.245c-0.136,0.057 -0.283,0.086 -0.431,0.086c-0.148,0 -0.295,-0.029 -0.431,-0.086c-0.137,-0.057 -0.261,-0.14 -0.366,-0.245l-7.5,-7.5c-0.211,-0.211 -0.33,-0.498 -0.33,-0.797c0,-0.299 0.119,-0.585 0.33,-0.797c0.211,-0.211 0.498,-0.33 0.797,-0.33c0.299,0 0.586,0.119 0.797,0.33l6.704,6.704l6.704,-6.705c0.211,-0.211 0.498,-0.33 0.797,-0.33c0.299,0 0.585,0.119 0.797,0.33c0.211,0.212 0.33,0.498 0.33,0.797c0,0.299 -0.119,0.586 -0.33,0.797z" fill="currentColor" />
+                        </g>
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+                <div class="activity-section">
+                  <p class="activity-content-text-style">من المقصود في اية “ فَوَجَدَا عَبْدًا مِّنْ عِبَادِنَا آتَيْنَاهُ رَحْ.</p>
+                  <p class="insight-card-subtitle">تفسير اية 23 من سورة النحل</p>
+                  <p class="insight-card-subtitle">اشرح لي اية 114 من سورة المائدة</p>
+                  <p class="insight-card-subtitle">تفسير سورة البقرة</p>
+                </div>
+              </div>
+            </div>
+            <div class="setting-container">
+              <div class="svg-container2">
+                <svg viewBox="0 0 32 32" x="0" y="0" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <defs>
+                    <clipPath id="clip1_7_251" xmlns="http://www.w3.org/2000/svg">
+                      <rect width="26" height="26" fill="white" transform="translate(3, 3)" />
+                    </clipPath>
+                  </defs>
+
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="main-content-section">
+          <div class="header-section1">
+            <p class="bold-blue-heading">ضِياء</p>
+          </div>
+          <div class="divine-guide-container">
+            <div class="divine-message-container">
+              <p class="arabic-text-container">
+                <span class="arabic-heading-styles">أهلاً<br /></span><span class="radiant-text-heading"> </span
+                ><span class="radiant-text"
+                  >في اي درب قرآني تبحث عن الضياء؟<br />
+                  دعني اكون دليلك</span
+                >
+              </p>
+              <div class="message-container">
+      <input class="message-input" type="text" placeholder="اسـأل ضِـياء" />
+      <button class="send-button">↑</button>
+    </div>
+                  </div>
+                </div>
+                <div class="header-with-logo">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
