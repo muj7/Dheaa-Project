@@ -173,7 +173,7 @@ if __name__ == '__main__':
 #        };
 #    </script>
 
-# <h2>Latest Activities</h2>
+# <h2>الردود السابقة</h2>
 # <ul>
 #    {% for activity in latest_activities %}
 #        <li>
@@ -200,28 +200,6 @@ if __name__ == '__main__':
 #        <button type="submit">Send</button>
 #    </form>
 #
-#    <h2>Latest Activities</h2>
-#    <ul>
-#        {% for activity in latest_activities %}
-#            <li>
-#                {{ activity }}
-#                <button onclick="copyToClipboard('{{ activity }}')">Copy</button>
-#            </li>
-#        {% endfor %}
-#    </ul>
-#
-#    <script>
-#        // JavaScript function to copy text to clipboard
-#        function copyToClipboard(text) {
-#            navigator.clipboard.writeText(text).then(() => {
-#                alert("Copied to clipboard: " + text);
-#            }).catch((error) => {
-#               console.error("Failed to copy text: ", error);
-#           });
-#       }
-#    </script>
-
-#  <h2>Conversation</h2>
 #    <div id="conversation">
 #        <ul>
 #            {% for activity in latest_activities %}
@@ -238,10 +216,7 @@ if __name__ == '__main__':
 #        </ul>
 #    </div>
 #
-#    <h2>Latest Activities</h2>
-#    <p>This section shows the last 10 messages in the conversation for context.</p>
-#
-#    <h2>Favorites</h2>
+#    <h2>الردود المفضلة</h2>
 #    <ul>
 #        {% for favorite in favorites %}
 #            <li>{{ favorite }}</li>
