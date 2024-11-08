@@ -369,10 +369,25 @@
                   </div>
                 </div>
                 <div class="activity-section">
-                  <p class="activity-content-text-style">تفسير سورة البقرة</p>
-                  <p class="insight-card-subtitle">تفسير اية 23 من سورة النحل</p>
-                  <p class="insight-card-subtitle">من المقصود في اية “ فَوَجَدَا عَبْدًا مِّنْ عِبَادِنَا آتَيْنَاهُ رَحْ.</p>
-                  <p class="insight-card-subtitle">اشرح لي اية 114 من سورة المائدة</p>
+                  <ul>
+                    {% for activity in latest_activities %}
+                       <li>
+                            {{ activity }}
+                            <button onclick="copyToClipboard('{{ activity }}')">Copy</button>
+                        </li>
+                    {% endfor %}
+                 </ul>
+               
+                 <script>
+                    // JavaScript function to copy text to clipboard
+                    function copyToClipboard(text) {
+                        navigator.clipboard.writeText(text).then(() => {
+                            alert("Copied to clipboard: " + text);
+                       }).catch((error) => {
+                            console.error("Failed to copy text: ", error);
+                        });
+                    }
+                </script>
                 </div>
               </div>
               <div class="dynamic-activity-section">
@@ -389,10 +404,11 @@
                   </div>
                 </div>
                 <div class="activity-section">
-                  <p class="activity-content-text-style">من المقصود في اية “ فَوَجَدَا عَبْدًا مِّنْ عِبَادِنَا آتَيْنَاهُ رَحْ.</p>
-                  <p class="insight-card-subtitle">تفسير اية 23 من سورة النحل</p>
-                  <p class="insight-card-subtitle">اشرح لي اية 114 من سورة المائدة</p>
-                  <p class="insight-card-subtitle">تفسير سورة البقرة</p>
+                  <ul>
+                            {% for favorite in favorites %}
+                                <li>{{ favorite }}</li>
+                           {% endfor %}
+                       </ul>
                 </div>
               </div>
             </div>
@@ -423,10 +439,56 @@
                   دعني اكون دليلك</span
                 >
               </p>
-              <div class="message-container">
-      <input class="message-input" type="text" placeholder="اسـأل ضِـياء" />
-      <button class="send-button">↑</button>
-    </div>
+              <form action="/chat" method="POST">
+                <div class="message-container">
+                  <input class="message-input" type="text" name="message-input" placeholder="اسـأل ضِـياء" />
+                  <button type="submit" class="send-button">↑</button>
+                </div>
+              </form>
+            <div id="messages"></div>
+            
+            <script>
+                document.querySelector(".send-button").onclick = async () => {
+                    const queryInput = document.querySelector(".message-input");
+                    const query = queryInput.value.trim();
+            
+                    if (!query) return; // Avoid sending empty messages
+            
+                    // Display the user's query as a chat bubble
+                    const userMessage = document.createElement("div");
+                    userMessage.className = "message user";
+                    userMessage.innerText = query;
+                    document.getElementById("messages").appendChild(userMessage);
+            
+                    // Scroll to the latest message
+                    document.getElementById("messages").scrollTop = document.getElementById("messages").scrollHeight;
+            
+                    // Send the query to the Flask backend
+                    const response = await fetch("/ask_model", {
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "application/x-www-form-urlencoded"
+                        },
+                        body: new URLSearchParams({ "query": query })
+                    });
+            
+                    // Process the model's response
+                    const result = await response.json();
+                    const modelResponse = document.createElement("div");
+                    modelResponse.className = "message model";
+                    modelResponse.innerText = result.response;
+            
+                    // Display the model's response
+                    document.getElementById("messages").appendChild(modelResponse);
+            
+                    // Scroll to the latest message
+                    document.getElementById("messages").scrollTop = document.getElementById("messages").scrollHeight;
+            
+                    // Clear the input field
+                    queryInput.value = "";
+                };
+            </script>
+            
                   </div>
                 </div>
                 <div class="header-with-logo">

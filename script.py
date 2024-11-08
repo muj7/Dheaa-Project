@@ -13,7 +13,6 @@ from flask import Flask, render_template, request, redirect, url_for, send_file
 from flask import Flask
 from flask import render_template
 from flask import jsonify, request
-from main import text_to_speech
 import os
 from gtts import gTTS
 import io
@@ -39,9 +38,9 @@ def get_allam_response(user_query):
 app = Flask(__name__)
 
 
-def index():
-    # Render the HTML form
-    return render_template('index.html')
+@app.route('/')
+def home():
+    return render_template('index.html', latest_activities=latest_activities)
 
 
 app = Flask(__name__)
@@ -53,14 +52,14 @@ favorite = []
 @app.route('/chat', methods=['POST'])
 def chat():
     # Retrieve user input from the form data
-    text_input = request.form.get('user_input')
+    text_input = request.form.get('message-input')
 
-    # Generate a response from the assistant(replace with your model code)
+    # Generate a response from the assistant (replace with your model code)
     model_response = get_allam_response(text_input)
 
     # Append a conversation entry to the activity log
     conversation_entry = {
-        "user_input": f"You: {user_input}",
+        "message_input": f"You: {text_input}",
         "model_response": model_response
     }
     latest_activities.append(conversation_entry)
@@ -68,8 +67,9 @@ def chat():
     # Keep only the last 10 responses
     if len(latest_activities) > 10:
         latest_activities.pop(0)
+
     # Pass the response and recent activities to the HTML template
-    return render_template('chat.html', response=model_response, latest_activities=latest_activities)
+    return render_template('index.html', response=model_response, latest_activities=latest_activities)
 
 
 @app.route('/favorite', methods=['POST'])
@@ -84,10 +84,7 @@ def favorite_response():
 @app.route('/speech', methods=['POST'])
 def speech_response():
     # Get Arabic text from the form
-    speech_text = request.f
-
-
-orm.get('speech_response')
+    speech_text = request.form.get('speech_response')
 
     if not speech_text:
         return redirect(url_for('chat'))   # Redirect if no text is provided
@@ -175,26 +172,6 @@ if __name__ == '__main__':
 #         };
 #     </script>
 #
-#  <h2>الردود السابقة</h2>
-#  <ul>
-#     {% for activity in latest_activities %}
-#         <li>
-#             {{ activity }}
-#             <button onclick="copyToClipboard('{{ activity }}')">Copy</button>
-#         </li>
-#     {% endfor %}
-#  </ul>
-#
-#  <script>
-#     // JavaScript function to copy text to clipboard
-#     function copyToClipboard(text) {
-#         navigator.clipboard.writeText(text).then(() => {
-#             alert("Copied to clipboard: " + text);
-#        }).catch((error) => {
-#             console.error("Failed to copy text: ", error);
-#         });
-#     }
- # </script>
 #
 #    <form action="/chat" method="post">
 #       <label for="user_input">Enter your message:</label>
