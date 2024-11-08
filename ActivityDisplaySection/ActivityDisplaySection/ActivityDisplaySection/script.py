@@ -68,7 +68,6 @@ def chat():
     # Keep only the last 10 responses
     if len(latest_activities) > 10:
         latest_activities.pop(0)
-
     # Pass the response and recent activities to the HTML template
     return render_template('chat.html', response=model_response, latest_activities=latest_activities)
 
@@ -85,9 +84,12 @@ def favorite_response():
 @app.route('/speech', methods=['POST'])
 def speech_response():
     # Get Arabic text from the form
-    speech_text = request.form.get('speech_response')
+    speech_text = request.f
 
-    if not speech_text:
+
+orm.get('speech_response')
+
+   if not speech_text:
         return redirect(url_for('chat'))    Redirect if no text is provided
 
     # Generate speech in Arabic using gTTS

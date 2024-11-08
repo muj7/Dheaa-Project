@@ -369,6 +369,10 @@
                   </div>
                 </div>
                 <div class="activity-section">
+                  <form action="{{ url_for('favorite_response') }}" method="post" style="display:inline;">
+                      <input type="hidden" name="favorite_response" value="{{ activity.model_response }}">
+                      <button type="submit">Favorite</button>
+                  </form>
                   <p class="activity-content-text-style">تفسير سورة البقرة</p>
                   <p class="insight-card-subtitle">تفسير اية 23 من سورة النحل</p>
                   <p class="insight-card-subtitle">من المقصود في اية “ فَوَجَدَا عَبْدًا مِّنْ عِبَادِنَا آتَيْنَاهُ رَحْ.</p>
@@ -389,10 +393,26 @@
                   </div>
                 </div>
                 <div class="activity-section">
-                  <p class="activity-content-text-style">من المقصود في اية “ فَوَجَدَا عَبْدًا مِّنْ عِبَادِنَا آتَيْنَاهُ رَحْ.</p>
-                  <p class="insight-card-subtitle">تفسير اية 23 من سورة النحل</p>
-                  <p class="insight-card-subtitle">اشرح لي اية 114 من سورة المائدة</p>
-                  <p class="insight-card-subtitle">تفسير سورة البقرة</p>
+                  <h2>الردود السابقة</h2>
+                    <ul>
+                       {% for activity in latest_activities %}
+                           <li>
+                               {{ activity }}
+                               <button onclick="copyToClipboard('{{ activity }}')">Copy</button>
+                           </li>
+                       {% endfor %}
+                    </ul>
+                  
+                    <script>
+                       // JavaScript function to copy text to clipboard
+                       function copyToClipboard(text) {
+                           navigator.clipboard.writeText(text).then(() => {
+                               alert("Copied to clipboard: " + text);
+                          }).catch((error) => {
+                               console.error("Failed to copy text: ", error);
+                           });
+                       }
+                    </script>
                 </div>
               </div>
             </div>
@@ -423,48 +443,52 @@
                   دعني اكون دليلك</span
                 >
               </p>
-              <div class="message-container">
-      <input class="message-input" type="text" placeholder="اسـأل ضِـياء" />
-      <button class="send-button">↑</button>
-      <script>
-               document.getElementById("message-input").onsubmit = async (event) => {
+              <div class="message-container" id="message-container">
+                <input class="message-input" id="message-input" type="text" placeholder="اسـأل ضِـياء" />
+                <button class="send-button" id="send-button">↑</button>
+            </div>
+            <div id="messages"></div>
+            
+            <script>
+                document.getElementById("send-button").onclick = async (event) => {
                     event.preventDefault();
-                   const query = document.getElementById("query").value;
-        
+                    const query = document.getElementById("message-input").value;
+                    
                     // Display the user's query as a chat bubble
                     const userMessage = document.createElement("div");
-                     userMessage.className = "message user";
-                     userMessage.innerText = query;
-                     document.getElementById("messages").appendChild(userMessage);
-         
-                     // Scroll to the latest message
-                     document.getElementById("messages").scrollTop = document.getElementById("messages").scrollHeight;
-         
-                     // Send the query to the Flask backend
-                     const response = await fetch("/ask_model", {
-                         method: "POST",
-                         headers: {
-                             "Content-Type": "application/x-www-form-urlencoded"
-                         },
-                         body: new URLSearchParams({ "query": query })
-                     });
-         
-                     // Process the model's response
-                     const result = await response.json();
-                     const modelResponse = document.createElement("div");
-                     modelResponse.className = "message model";
-                     modelResponse.innerText = result.response;
-         
-                     // Display the model's response
-                     document.getElementById("messages").appendChild(modelResponse);
-         
-                     // Scroll to the latest message
-                     document.getElementById("messages").scrollTop = document.getElementById("messages").scrollHeight;
-         
-                     // Clear the input field
-                     document.getElementById("query").value = "";
-                 };
-             </script>
+                    userMessage.className = "message user";
+                    userMessage.innerText = query;
+                    document.getElementById("messages").appendChild(userMessage);
+                    
+                    // Scroll to the latest message
+                    document.getElementById("messages").scrollTop = document.getElementById("messages").scrollHeight;
+                    
+                    // Send the query to the Flask backend
+                    const response = await fetch("/ask_model", {
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "application/x-www-form-urlencoded"
+                        },
+                        body: new URLSearchParams({ "message-input": query })
+                    });
+                    
+                    // Process the model's response
+                    const result = await response.json();
+                    const modelResponse = document.createElement("div");
+                    modelResponse.className = "message model";
+                    modelResponse.innerText = result.response;
+                    
+                    // Display the model's response
+                    document.getElementById("messages").appendChild(modelResponse);
+                    
+                    // Scroll to the latest message
+                    document.getElementById("messages").scrollTop = document.getElementById("messages").scrollHeight;
+                    
+                    // Clear the input field
+                    document.getElementById("message-input").value = "";
+                };
+            </script>
+            
     </div>
                   </div>
                 </div>
