@@ -40,7 +40,13 @@ app = Flask(__name__)
 
 @app.route('/')
 def home():
-    return render_template('index.html', latest_activities=latest_activities)
+    return render_template('index.html')
+
+
+@app.route('/favicon.ico')
+def favicon():
+    return send_from_directory(os.path.join(app.root_path, 'assets'),
+                               'favicon.ico', mimetype='assets/quran.icon')
 
 
 app = Flask(__name__)
