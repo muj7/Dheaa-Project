@@ -55,10 +55,10 @@ def chat():
     # Retrieve user input from the form data
     text_input = request.form.get('user_input')
 
-    Generate a response from the assistant(replace with your model code)
+    # Generate a response from the assistant(replace with your model code)
     model_response = get_allam_response(text_input)
 
-    Append a conversation entry to the activity log
+    # Append a conversation entry to the activity log
     conversation_entry = {
         "user_input": f"You: {user_input}",
         "model_response": model_response
@@ -89,8 +89,8 @@ def speech_response():
 
 orm.get('speech_response')
 
-   if not speech_text:
-        return redirect(url_for('chat'))    Redirect if no text is provided
+    if not speech_text:
+        return redirect(url_for('chat'))   # Redirect if no text is provided
 
     # Generate speech in Arabic using gTTS
     try:
