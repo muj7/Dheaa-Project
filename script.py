@@ -5,12 +5,40 @@ from flask import jsonify, request
 import os
 from gtts import gTTS
 import io
+import requests
+from ibm_watsonx_ai.foundation_models import Model
+
+
+def get_credentials():
+    return {
+        "url": "https://eu-de.ml.cloud.ibm.com",
+        "apikey": "NlIDYqZwsMW62iN4bTPrlEl0auMnoraQL4kNXqbIbW8b"
+    }
+
+
+model_id = "sdaia/allam-1-13b-instruct"
+project_id = "d18b772d-59a4-4fc0-983d-c194ddb3ca9b"
+
+parameters = {
+    "decoding_method": "greedy",
+    "max_new_tokens": 2000,
+    "min_new_tokens": 200,
+    "repetition_penalty": 1
+}
+
+model = Model(
+    model_id=model_id,
+    params=parameters,
+    credentials=get_credentials(),
+    project_id=project_id,
+)
 
 
 def get_allam_response(user_query):
     # Your API endpoint and access token
-    endpoint = "YOUR_ALLAM_API_ENDPOINT"
-    access_token = "YOUR_ACCESS_TOKEN"
+    credentials = get_credentials()
+    endpoint = credentials["url"]
+    access_token = credentials["apikey"]
 
     headers = {
         "Authorization": f"Bearer {access_token}",
@@ -19,9 +47,11 @@ def get_allam_response(user_query):
     data = {
         "input": user_query
     }
-
-    response = requests.post(endpoint, headers=headers, json=data)
-    return response.json().get("output", "Eirror: No response from model")
+    print(user_query)
+    generated_response = model.generate_text(
+        prompt=user_query, guardrails=False)
+    print(generated_response)
+    return generated_response
 
 
 app = Flask(__name__)
@@ -45,7 +75,8 @@ favorites = []
 @app.route('/chat', methods=['POST'])
 def chat():
     # Retrieve user input from the form data
-    text_input = request.form.get('message-input')
+    text_input = request.form.get('query')
+    print('Text input:', text_input)
 
     # Generate a response from the assistant (replace with your model code)
     model_response = get_allam_response(text_input)
@@ -61,9 +92,11 @@ def chat():
     if len(latest_activities) > 10:
         latest_activities.pop(0)
 
-    # Pass the response and recent activities to the HTML template
-    return render_template('index.html', response=model_response, latest_activities=latest_activities)
-
+    # Return the model's response as JSON
+    return jsonify({
+        "response": model_response,
+        "latest_activities": latest_activities  # Optional: Return if you need to display them
+    })
 
 @app.route('/favorite', methods=['POST'])
 def favorite_response():
