@@ -7,12 +7,12 @@ from gtts import gTTS
 import io
 import requests
 from ibm_watsonx_ai.foundation_models import Model
-
+api_key = "jspgZD3pEqGkZLopbOmam7NtabwFLznBotSZc8OafQZA"
 
 url = "https://iam.cloud.ibm.com/identity/token"
 headers = {"Content-Type": "application/x-www-form-urlencoded"}
 data = {
-    "apikey": "jspgZD3pEqGkZLopbOmam7NtabwFLznBotSZc8OafQZA",
+    "apikey": api_key,
     "grant_type": "urn:ibm:params:oauth:grant-type:apikey"
 }
 
@@ -23,16 +23,16 @@ else:
     print(f"Error: {response.status_code}")
     print(response.text)
 res_format = response.json()
-YOUR_ACCESS_TOKEN = res_format['access_token']
 
 
 def get_allam_response(user_query):
+   # access_token = get_access_token(api_key)
 
     url = "https://eu-de.ml.cloud.ibm.com/ml/v1/text/generation?version=2023-05-29"
     headers = {
         "Accept": "application/json",
         "Content-Type": "application/json",
-        "Authorization": "Bearer "+YOUR_ACCESS_TOKEN
+        "Authorization": f"Bearer {access_token}"
     }
 
     # Prepare the request body with user input
@@ -43,7 +43,7 @@ def get_allam_response(user_query):
             "min_new_tokens": 200,
             "repetition_penalty": 1
         },
-        "input": user_query,  # Include the user's input here
+        "input": user_input,  # Include the user's input here
         "model_id": "sdaia/allam-1-13b-instruct",
         "project_id": "d18b772d-59a4-4fc0-983d-c194ddb3ca9b"
     }
@@ -99,11 +99,12 @@ def chat():
     if len(latest_activities) > 10:
         latest_activities.pop(0)
 
+    # Return the model's response as JSON
     return jsonify({
         "response": model_response,
         # Optional: Return if you need to display them
         "latest_activities": latest_activities
-    })  
+    })
 
 
 @app.route('/favorite', methods=['POST'])
