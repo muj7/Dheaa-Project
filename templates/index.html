@@ -375,7 +375,7 @@
                   {% for activity in latest_activities %}
                   <li>
                     {{ activity }}
-                    <button onclick="copyToClipboard('{{ activity }}')">Copy</button>
+                    <button onclick="copyToClipboard('{{ activity }}')">أنسخ الرد</button>
                   </li>
                   {% endfor %}
                 </ul>
@@ -452,7 +452,6 @@
               document.querySelector(".send-button").onclick = async () => {
                 const queryInput = document.querySelector(".message-input");
                 const query = queryInput.value.trim();
-                queryInput.style.visibility = "hidden";
                 document.getElementById("Welcome text1").style.visibility = "hidden";
                 document.getElementById("Welcome text2").style.visibility = "hidden";
 
@@ -493,8 +492,9 @@
                 // Clear the input field
                 queryInput.value = "";
 
-                await delay(2 * 60 * 1000)
-                window.location.href = "http://127.0.0.1:5000";
+                 setTimeout(() => {
+                  window.location.href = "http://127.0.0.1:5000";
+                  }, 30000); // 30 seconds in milliseconds
               };
             </script>
           </div>

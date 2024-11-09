@@ -40,7 +40,7 @@ def get_allam_response(user_query):
     headers = {
         "Accept": "application/json",
         "Content-Type": "application/json",
-        "Authorization": "Bearer eyJraWQiOiIyMDI0MTEwMTA4NDIiLCJhbGciOiJSUzI1NiJ9.eyJpYW1faWQiOiJJQk1pZC02OTUwMDBKRDUzIiwiaWQiOiJJQk1pZC02OTUwMDBKRDUzIiwicmVhbG1pZCI6IklCTWlkIiwianRpIjoiZGY3MWFjNjUtYTFiMC00ZTU3LWIxYzAtYTQyNzEyOWU4OWJiIiwiaWRlbnRpZmllciI6IjY5NTAwMEpENTMiLCJnaXZlbl9uYW1lIjoiTXVqdGFiYSIsImZhbWlseV9uYW1lIjoiQWxtZXNoYWwiLCJuYW1lIjoiTXVqdGFiYSBBbG1lc2hhbCIsImVtYWlsIjoibXVqdGFiYWFsbWVzaGFsMjlAZ21haWwuY29tIiwic3ViIjoibXVqdGFiYWFsbWVzaGFsMjlAZ21haWwuY29tIiwiYXV0aG4iOnsic3ViIjoibXVqdGFiYWFsbWVzaGFsMjlAZ21haWwuY29tIiwiaWFtX2lkIjoiSUJNaWQtNjk1MDAwSkQ1MyIsIm5hbWUiOiJNdWp0YWJhIEFsbWVzaGFsIiwiZ2l2ZW5fbmFtZSI6Ik11anRhYmEiLCJmYW1pbHlfbmFtZSI6IkFsbWVzaGFsIiwiZW1haWwiOiJtdWp0YWJhYWxtZXNoYWwyOUBnbWFpbC5jb20ifSwiYWNjb3VudCI6eyJ2YWxpZCI6dHJ1ZSwiYnNzIjoiNTliMjk4Y2FkMTVkNDgxMWJiN2Q1M2I3YWNlN2Y3NWQiLCJpbXNfdXNlcl9pZCI6IjEyNjc3MjY3IiwiZnJvemVuIjp0cnVlLCJpbXMiOiIyNzQ5MTkyIn0sImlhdCI6MTczMTE2MDA0NCwiZXhwIjoxNzMxMTYzNjQ0LCJpc3MiOiJodHRwczovL2lhbS5jbG91ZC5pYm0uY29tL2lkZW50aXR5IiwiZ3JhbnRfdHlwZSI6InVybjppYm06cGFyYW1zOm9hdXRoOmdyYW50LXR5cGU6YXBpa2V5Iiwic2NvcGUiOiJpYm0gb3BlbmlkIiwiY2xpZW50X2lkIjoiZGVmYXVsdCIsImFjciI6MSwiYW1yIjpbInB3ZCJdfQ.AckG3r8iWqs8_1Z8LwqO13Sn1kgyyJn7D3VOmg3GEju3U9VvfT840GrYGQ6PR-Seasl9sagYGLHCUmILy_XDEP30E14mK1UFXCjhMCycqvzGMz1pjVsO6XcnI9egBLOPLd1OE0w0pW9qajTYZztBbzRv6tyE7OYMk2NEv3yrgcErjbURyrxO7_FFSmSxSZsVSOSzRrQjBHhevr8DvKGKuqqaec6vlNw6uzawMlLn2xo31fjeI6_N-uZQldmootBSTq4X7_-Pplg83rvcorNFlwmrHIiToFEVX8t8vzGeGe-S8R4I7E3zpNY8iYskMKi9NyFo4DHFStlNRHqHde_z8A"
+        "Authorization": "Bearer eyJraWQiOiIyMDI0MTEwMTA4NDIiLCJhbGciOiJSUzI1NiJ9.eyJpYW1faWQiOiJJQk1pZC02OTUwMDBKRDUzIiwiaWQiOiJJQk1pZC02OTUwMDBKRDUzIiwicmVhbG1pZCI6IklCTWlkIiwianRpIjoiZmMxMjJhZGQtNjNkNi00NjNlLWJjNTEtNjQ2NTVlOTNiM2ZkIiwiaWRlbnRpZmllciI6IjY5NTAwMEpENTMiLCJnaXZlbl9uYW1lIjoiTXVqdGFiYSIsImZhbWlseV9uYW1lIjoiQWxtZXNoYWwiLCJuYW1lIjoiTXVqdGFiYSBBbG1lc2hhbCIsImVtYWlsIjoibXVqdGFiYWFsbWVzaGFsMjlAZ21haWwuY29tIiwic3ViIjoibXVqdGFiYWFsbWVzaGFsMjlAZ21haWwuY29tIiwiYXV0aG4iOnsic3ViIjoibXVqdGFiYWFsbWVzaGFsMjlAZ21haWwuY29tIiwiaWFtX2lkIjoiSUJNaWQtNjk1MDAwSkQ1MyIsIm5hbWUiOiJNdWp0YWJhIEFsbWVzaGFsIiwiZ2l2ZW5fbmFtZSI6Ik11anRhYmEiLCJmYW1pbHlfbmFtZSI6IkFsbWVzaGFsIiwiZW1haWwiOiJtdWp0YWJhYWxtZXNoYWwyOUBnbWFpbC5jb20ifSwiYWNjb3VudCI6eyJ2YWxpZCI6dHJ1ZSwiYnNzIjoiNTliMjk4Y2FkMTVkNDgxMWJiN2Q1M2I3YWNlN2Y3NWQiLCJpbXNfdXNlcl9pZCI6IjEyNjc3MjY3IiwiZnJvemVuIjp0cnVlLCJpbXMiOiIyNzQ5MTkyIn0sImlhdCI6MTczMTE2NjY5OCwiZXhwIjoxNzMxMTcwMjk4LCJpc3MiOiJodHRwczovL2lhbS5jbG91ZC5pYm0uY29tL2lkZW50aXR5IiwiZ3JhbnRfdHlwZSI6InVybjppYm06cGFyYW1zOm9hdXRoOmdyYW50LXR5cGU6YXBpa2V5Iiwic2NvcGUiOiJpYm0gb3BlbmlkIiwiY2xpZW50X2lkIjoiZGVmYXVsdCIsImFjciI6MSwiYW1yIjpbInB3ZCJdfQ.Gdp7dKIUijSPD7hWmUAhzG94RaNAkTBneYifHI_r4SW5OpwYOqO0cPbn-4_1UT6frORMnxyMGVLBv2goyiSqDmkqukdfjTQZhPJ16qB42DoPG3EVXI23h931wWyqegl1M8P1rX06A5_7o3ka1pQz30xFtVqWjtDS1Ut5ivuhq3Y5OehPqQCa5oSeV9G3UggYlxbJLjLkC8K-C3m0TosRt9xqT2S1nCWs-WKyPnVlU-wp0zqOA--Ib1XXL2R8kcb7CownnpBacJo3iGdo4eKw50xP1Y_BzrElyCbzlnlMc0Yqf_vBx0QZ3TAaUDj7M3UmekAdTzIVfpq3w40pwKTlYQ"
     }
 
     # Request body with user input
@@ -98,11 +98,14 @@ def chat():
         # Generate a response from the assistant using get_allam_response
         model_response = get_allam_response(text_input)
 
+        user_message = ''.join(
+            [char for char in text_input.replace("You: ", " ") if char not in "{}\n'"])
+        model_message = ''.join([char for char in model_response.replace(
+            "model_response:", " ") if char not in "{}\n'"])
         # Append a conversation entry to the activity log
-        conversation_entry = {
-            "message_input": "سؤالك: " + text_input.replace("You: ", "").replace("{", "").replace("}", "").replace("\n", "").strip(),
-            "model_response": "رد ضياء: " + model_response.replace("model_response:", "").replace("{", "").replace("}", "").replace("\n", "").strip()
-        }
+        conversation_entry = "سؤالك: " + user_message.strip() + "\n" + "رد ضياء: " + \
+            model_message.strip()
+
         latest_activities.append(conversation_entry)
 
         # Keep only the last 10 responses
