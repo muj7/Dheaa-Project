@@ -100,9 +100,9 @@ def chat():
 
         # Append a conversation entry to the activity log
         conversation_entry = {
-            "message_input": f"You: {text_input}",
-            "model_response": model_response
-        }
+    "       message_input": text_input.replace("You: ", " "),
+            "model_response": model_response.replace("model_response:", " ")
+                    }
         latest_activities.append(conversation_entry)
 
         # Keep only the last 10 responses
