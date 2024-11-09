@@ -51,7 +51,7 @@ Installation
 Clone the repository:
 bash
 Copy code
-git clone https://github.com/yourusername/dheaa.git
+https://github.com/muj7/Dheaa-Project
 Navigate to the project directory:
 bash
 Copy code
