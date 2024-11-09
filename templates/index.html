@@ -1,459 +1,507 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display+SC:wght@700" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lateef:wght@700" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <meta charset="UTF-8" />
-    <meta name='viewport' content='width=device-width, initial-scale=1'>
-<script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
-    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <!--[if !mso]><!-->
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <!--<![endif]-->
-    <meta name="x-apple-disable-message-reformatting" />
-    <style>
-      .primary-content-container {
-        box-sizing: border-box;
-        display: flex;
-        flex-direction: row;
-        align-items: flex-start;
-        justify-content: flex-start;
-        min-width: 1360px;
-        padding-bottom: 20px;
-        background: white;
-      }
-      .sidebar-container {
-        box-sizing: border-box;
-        display: flex;
-        flex: 0 0 360px;
-        flex-direction: column;
-        align-items: stretch;
-        justify-content: flex-start;
-        background: #fefefe;
-        border-right: 1px solid #e2e8f0;
-        margin-left: auto;
 
-      }
-      .header-section {
-        box-sizing: border-box;
-        display: flex;
-        flex: 0 0 auto;
-        flex-direction: row;
-        gap: 8px;
-        align-items: center;
-        justify-content: space-between;
-        height: 86px;
-        padding-right: 24px;
-        padding-left: 24px;
-      }
-      .header-with-logo {
-        display: flex;
-        flex: 0 0 auto;
-        flex-direction: row;
-        align-items: center;
-        justify-content: flex-start;
-      }
-      .image-with-text-overlap {
-        box-sizing: border-box;
-        display: block;
-        width: 52px;
-        max-width: initial;
-        height: 46px;
-        border: none;
-        object-fit: cover;
-      }
-      .elegant-heading {
-        flex: 0 0 auto;
-        padding: 0;
-        margin: 0;
-        margin-left: 7px;
-        font: 700 43px/38px Lateef, serif;
-        letter-spacing: -0.39px;
-        background: linear-gradient(180deg, rgba(185, 227, 237, 1) 0%, rgba(7, 109, 136, 1) 100%);
-        background-clip: text;
-        -webkit-text-fill-color: transparent;
-      }
-      .svg-container {
-        display: flex;
-        flex: 0 0 auto;
-        width: 24px;
-        height: 24px;
-        cursor: pointer;
-        color: #252627;
-      }
-      .dynamic-activity-container {
-        flex: 0 0 auto;
-      }
-      .dynamic-activity-container1 {
-        box-sizing: border-box;
-        width: 100%;
-      }
-      .dynamic-activity-section {
-        box-sizing: border-box;
-        display: flex;
-        flex-direction: column;
-        align-items: stretch;
-        justify-content: flex-start;
-        width: 100%;
-        padding: 24px 24px 20px 23px;
-        border-bottom: 1px solid #ffff;
-      }
-      .dynamic-content-section {
-        display: flex;
-        flex: 0 0 auto;
-        flex-direction: row;
-        gap: 8px;
-        align-items: center;
-        justify-content: space-between;
-      }
-      .dynamic-content-heading {
-        flex: 0 0 auto;
-        padding: 0;
-        margin: 0;
-        font: 700 24px Lateef, serif;
-        color: #1e293b;
-        letter-spacing: -0.14px;
-        white-space: pre-wrap;
-      }
-      .activity-count-info-text-style {
-        flex: 0 0 auto;
-        padding: 0;
-        margin: 0;
-        font: 500 30px Lateef, serif;
-        color: #475569;
-        letter-spacing: -0.11px;
-        white-space: pre-wrap;
-      }
-      .svg-container1 {
-        display: flex;
-        flex: 0 0 auto;
-        width: 24px;
-        height: 24px;
-        cursor: pointer;
-        margin-left: 7px;
-        color: #1e293b;
-      }
-      .activity-section {
-        flex: 0 0 auto;
-        margin-top: 24px;
+<head>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display+SC:wght@700" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lateef:wght@700" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <meta charset="UTF-8" />
+  <meta name='viewport' content='width=device-width, initial-scale=1'>
+  <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <!--[if !mso]><!-->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <!--<![endif]-->
+  <meta name="x-apple-disable-message-reformatting" />
+  <style>
+    .primary-content-container {
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: row;
+      align-items: flex-start;
+      justify-content: flex-start;
+      min-width: 1360px;
+      padding-bottom: 20px;
+      background: white;
+    }
 
-      }
-      .activity-content-text-style {
-        padding: 0;
-        margin: 0;
-        font: 500 19px Lateef, serif;
-        color: #1e293b;
-        letter-spacing: -0.11px;
-        white-space: pre-wrap;
-      }
-      .insight-card-subtitle {
-        padding: 0;
-        margin: 0;
-        margin-top: 24px;
-        font: 500 19px Lateef, serif;
-        color: #1e293b;
-        letter-spacing: -0.11px;
-        white-space: pre-wrap;
-      }
-      .setting-container {
-        box-sizing: border-box;
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: flex-start;
-        width: 100%;
-        height: 92px;
-        padding-right: 21px;
-        padding-left: 21px;
-      }
-      .svg-container2 {
-        display: flex;
-        flex: 0 0 auto;
-        width: 32px;
-        height: 32px;
-      }
-      .bold-title {
-        flex: 0 0 auto;
-        padding: 0;
-        margin: 0;
-        margin-left: 8px;
-        font: 700 80px Lateef, serif;
-        color: #1e293b;
-        letter-spacing: -0.11px;
-      }
-      .main-content-section {
-        box-sizing: border-box;
-        display: flex;
-        flex: 0 0 1000px;
-        flex-direction: column;
-        align-items: stretch;
-        justify-content: flex-start;
-      }
-      .header-section1 {
-        box-sizing: border-box;
-        display: flex;
-        flex: 0 0 auto;
-        flex-direction: row;
-        gap: 8px;
-        align-items: center;
-        justify-content: space-between;
-        height: 80px;
-        padding-right: 31.5px;
-        padding-left: 31px;
-        border-bottom: 1px solid #cbd5e1;
-      }
-      .avatar-image-with-border {
-        box-sizing: border-box;
-        display: block;
-        width: 41px;
-        max-width: initial;
-        height: 41px;
-        border: 0.5px solid black;
-        border-radius: 77px;
-        object-fit: cover;
-      }
-      .divine-guide-container {
-        display: flex;
-        flex: 0 0 auto;
-        flex-direction: column;
-        align-items: center;
-        justify-content: flex-start;
-        margin-top: 287px;
-      }
-      .divine-message-container {
-        box-sizing: border-box;
-        display: flex;
-        flex-direction: column;
-        align-items: stretch;
-        justify-content: flex-start;
-        min-width: 808px;
-      }
-      .arabic-text-container {
-        box-sizing: border-box;
-        flex: 0 0 auto;
-        align-self: center;
-        max-width: 347px;
-        padding: 0;
-        margin: 0;
-        color: black;
-        text-align: center;
-      }
-      .arabic-heading-styles {
-        font: 700 38px Lateef, serif;
-        color: #60b1c5;
-        text-align: center;
-      }
-      .radiant-text-heading {
-        font: 700 38px Lateef, serif;
-        text-align: center;
-        background: linear-gradient(90deg, rgba(194, 238, 241, 1) 0%, rgba(97, 178, 197, 1) 100%);
-        background-clip: text;
-        -webkit-text-fill-color: transparent;
-      }
-      .radiant-text {
-        font: 700 38px Lateef, serif;
-        text-align: center;
-        background: linear-gradient(83.27deg, rgba(194, 238, 241, 1) 10.65%, rgba(97, 178, 197, 1) 94.36%);
-        background-clip: text;
-        -webkit-text-fill-color: transparent;
-      }
-      .message-container {
-        box-sizing: border-box;
-        display: flex;
-        flex: 0 0 auto;
-        flex-direction: row;
-        gap: 8px;
-        align-items: center;
-        justify-content: space-between;
-        height: 64px;
-        padding-right: 12px;
-        padding-left: 20px;
-        margin-top: 120px;
-        background: white;
-        border: 1px solid #cbd5e1;
-        border-radius: 9999px;
-        box-shadow: 0px 2px 4px rgba(23, 23, 23, 0.06), 0px 4px 8px rgba(23, 23, 23, 0.1);
-      }
-  .message-input {
-  flex: 1;
-  border: none;
-  outline: none;
-  font-size: 16px;
-  text-align: right;
-  direction: rtl;
-  margin-right:16.5px;
-}
-.send-button {
-  background-color: #09a6ae;
-  color: white;
-  border: none;
-  border-radius: 80px;
-  cursor: pointer;
-  padding-right: 8px;
-  padding-left: 8px;
-  width: 30px;
-  height: 30px;
-  font-size:25px
-      }
+    .sidebar-container {
+      box-sizing: border-box;
+      display: flex;
+      flex: 0 0 360px;
+      flex-direction: column;
+      align-items: stretch;
+      justify-content: flex-start;
+      background: #fefefe;
+      border-right: 1px solid #e2e8f0;
+      margin-left: auto;
 
-    </style>
-    <link
-    rel="shortcut icon"
-    href="{{ url_for('static', filename='quran.ico') }}"
-  />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  </head>
-  <body dir="rtl">
-    <div style="display: inline-block; width: 1360px" data-ignore="used only for top most containter width">
-      <div class="primary-content-container">
-        <div class="sidebar-container">
-          <div class="header-section">
-            <div class="header-with-logo">
-              <img src="https://s3-alpha-sig.figma.com/img/f7af/e370/3a7f95684162bda5b59d0bebbb1bcf09?Expires=1731283200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=FeG6bPaA-~EzwYjE2lnf9jNkG-e-dp16NzxZWDSJRR2CIVBUZC53lWyc32nKHpbhQsu8tTTerU5pI2fhQ-jcO2bNdgbPpO2niENE54vWxjLUHllJIWme2g-DLQl5zB3z-2Y94NcQLoqOsxiXt-7XcWUXZOFkvRo1A3oKXxstRcgj4GTdZgVuJlhQLDYQ3SeREqNxXh7Li~Nm4d2w2Y5MvYy8-T03nChpfsmKKJW8jWVJ~RiYd7T5nOSuN5pA6uWdGlAGu9ZfKFZmdZoBsfMWvEa3Rone8KjTv433vx64kRISsJT6kwhsggYdEgsy-903x8Wlw0tBaLJ1ioLFI4CPuw__" class="image-with-text-overlap" />
-              <p class="elegant-heading">ضِياء</p>
-            </div>
-              <div class="svg-container">
-                <button class="fa fa-edit"style="font-size:24px;color:#252627;
-                border: none;cursor: pointer;background-color:white; "></button>
-              </div>
+    }
+
+    .header-section {
+      box-sizing: border-box;
+      display: flex;
+      flex: 0 0 auto;
+      flex-direction: row;
+      gap: 8px;
+      align-items: center;
+      justify-content: space-between;
+      height: 86px;
+      padding-right: 24px;
+      padding-left: 24px;
+    }
+
+    .header-with-logo {
+      display: flex;
+      flex: 0 0 auto;
+      flex-direction: row;
+      align-items: center;
+      justify-content: flex-start;
+    }
+
+    .image-with-text-overlap {
+      box-sizing: border-box;
+      display: block;
+      width: 52px;
+      max-width: initial;
+      height: 46px;
+      border: none;
+      object-fit: cover;
+    }
+
+    .elegant-heading {
+      flex: 0 0 auto;
+      padding: 0;
+      margin: 0;
+      margin-left: 7px;
+      font: 700 43px/38px Lateef, serif;
+      letter-spacing: -0.39px;
+      background: linear-gradient(180deg, rgba(185, 227, 237, 1) 0%, rgba(7, 109, 136, 1) 100%);
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .svg-container {
+      display: flex;
+      flex: 0 0 auto;
+      width: 24px;
+      height: 24px;
+      cursor: pointer;
+      color: #252627;
+    }
+
+    .dynamic-activity-container {
+      flex: 0 0 auto;
+    }
+
+    .dynamic-activity-container1 {
+      box-sizing: border-box;
+      width: 100%;
+    }
+
+    .dynamic-activity-section {
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+      justify-content: flex-start;
+      width: 100%;
+      padding: 24px 24px 20px 23px;
+      border-bottom: 1px solid #ffff;
+    }
+
+    .dynamic-content-section {
+      display: flex;
+      flex: 0 0 auto;
+      flex-direction: row;
+      gap: 8px;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .dynamic-content-heading {
+      flex: 0 0 auto;
+      padding: 0;
+      margin: 0;
+      font: 700 24px Lateef, serif;
+      color: #1e293b;
+      letter-spacing: -0.14px;
+      white-space: pre-wrap;
+    }
+
+    .activity-count-info-text-style {
+      flex: 0 0 auto;
+      padding: 0;
+      margin: 0;
+      font: 500 30px Lateef, serif;
+      color: #475569;
+      letter-spacing: -0.11px;
+      white-space: pre-wrap;
+    }
+
+    .svg-container1 {
+      display: flex;
+      flex: 0 0 auto;
+      width: 24px;
+      height: 24px;
+      cursor: pointer;
+      margin-left: 7px;
+      color: #1e293b;
+    }
+
+    .activity-section {
+      flex: 0 0 auto;
+      margin-top: 24px;
+
+    }
+
+    .activity-content-text-style {
+      padding: 0;
+      margin: 0;
+      font: 500 19px Lateef, serif;
+      color: #1e293b;
+      letter-spacing: -0.11px;
+      white-space: pre-wrap;
+    }
+
+    .insight-card-subtitle {
+      padding: 0;
+      margin: 0;
+      margin-top: 24px;
+      font: 500 19px Lateef, serif;
+      color: #1e293b;
+      letter-spacing: -0.11px;
+      white-space: pre-wrap;
+    }
+
+    .setting-container {
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: flex-start;
+      width: 100%;
+      height: 92px;
+      padding-right: 21px;
+      padding-left: 21px;
+    }
+
+    .svg-container2 {
+      display: flex;
+      flex: 0 0 auto;
+      width: 32px;
+      height: 32px;
+    }
+
+    .bold-title {
+      flex: 0 0 auto;
+      padding: 0;
+      margin: 0;
+      margin-left: 8px;
+      font: 700 80px Lateef, serif;
+      color: #1e293b;
+      letter-spacing: -0.11px;
+    }
+
+    .main-content-section {
+      box-sizing: border-box;
+      display: flex;
+      flex: 0 0 1000px;
+      flex-direction: column;
+      align-items: stretch;
+      justify-content: flex-start;
+    }
+
+    .header-section1 {
+      box-sizing: border-box;
+      display: flex;
+      flex: 0 0 auto;
+      flex-direction: row;
+      gap: 8px;
+      align-items: center;
+      justify-content: space-between;
+      height: 80px;
+      padding-right: 31.5px;
+      padding-left: 31px;
+      border-bottom: 1px solid #cbd5e1;
+    }
+
+    .avatar-image-with-border {
+      box-sizing: border-box;
+      display: block;
+      width: 41px;
+      max-width: initial;
+      height: 41px;
+      border: 0.5px solid black;
+      border-radius: 77px;
+      object-fit: cover;
+    }
+
+    .divine-guide-container {
+      display: flex;
+      flex: 0 0 auto;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      margin-top: 287px;
+    }
+
+    .divine-message-container {
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+      justify-content: flex-start;
+      min-width: 808px;
+    }
+
+    .arabic-text-container {
+      box-sizing: border-box;
+      flex: 0 0 auto;
+      align-self: center;
+      max-width: 347px;
+      padding: 0;
+      margin: 0;
+      color: black;
+      text-align: center;
+    }
+
+    .arabic-heading-styles {
+      font: 700 38px Lateef, serif;
+      color: #60b1c5;
+      text-align: center;
+    }
+
+    .radiant-text-heading {
+      font: 700 38px Lateef, serif;
+      text-align: center;
+      background: linear-gradient(90deg, rgba(194, 238, 241, 1) 0%, rgba(97, 178, 197, 1) 100%);
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .radiant-text {
+      font: 700 38px Lateef, serif;
+      text-align: center;
+      background: linear-gradient(83.27deg, rgba(194, 238, 241, 1) 10.65%, rgba(97, 178, 197, 1) 94.36%);
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .message-container {
+      box-sizing: border-box;
+      display: flex;
+      flex: 0 0 auto;
+      flex-direction: row;
+      gap: 8px;
+      align-items: center;
+      justify-content: space-between;
+      height: 64px;
+      padding-right: 12px;
+      padding-left: 20px;
+      margin-top: 120px;
+      background: white;
+      border: 1px solid #cbd5e1;
+      border-radius: 9999px;
+      box-shadow: 0px 2px 4px rgba(23, 23, 23, 0.06), 0px 4px 8px rgba(23, 23, 23, 0.1);
+    }
+
+    .message-input {
+      flex: 1;
+      border: none;
+      outline: none;
+      font-size: 16px;
+      text-align: right;
+      direction: rtl;
+      margin-right: 16.5px;
+    }
+
+    .send-button {
+      background-color: #09a6ae;
+      color: white;
+      border: none;
+      border-radius: 80px;
+      cursor: pointer;
+      padding-right: 8px;
+      padding-left: 8px;
+      width: 30px;
+      height: 30px;
+      font-size: 25px
+    }
+  </style>
+  <link rel="shortcut icon" href="{{ url_for('static', filename='quran.ico') }}" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+</head>
+
+<body dir="rtl">
+  <div style="display: inline-block; width: 1360px" data-ignore="used only for top most containter width">
+    <div class="primary-content-container">
+      <div class="sidebar-container">
+        <div class="header-section">
+          <div class="header-with-logo">
+            <img
+              src="https://s3-alpha-sig.figma.com/img/f7af/e370/3a7f95684162bda5b59d0bebbb1bcf09?Expires=1731283200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=FeG6bPaA-~EzwYjE2lnf9jNkG-e-dp16NzxZWDSJRR2CIVBUZC53lWyc32nKHpbhQsu8tTTerU5pI2fhQ-jcO2bNdgbPpO2niENE54vWxjLUHllJIWme2g-DLQl5zB3z-2Y94NcQLoqOsxiXt-7XcWUXZOFkvRo1A3oKXxstRcgj4GTdZgVuJlhQLDYQ3SeREqNxXh7Li~Nm4d2w2Y5MvYy8-T03nChpfsmKKJW8jWVJ~RiYd7T5nOSuN5pA6uWdGlAGu9ZfKFZmdZoBsfMWvEa3Rone8KjTv433vx64kRISsJT6kwhsggYdEgsy-903x8Wlw0tBaLJ1ioLFI4CPuw__"
+              class="image-with-text-overlap" />
+            <p class="elegant-heading">ضِياء</p>
           </div>
-          <div class="dynamic-activity-container">
-            <div class="dynamic-activity-container1">
-              <!-- Repeated elements detected. These are rendered using loops & conditions in the React tab -->
-              <div class="dynamic-activity-section">
-                <div class="dynamic-content-section">
-                  <p class="dynamic-content-heading">آخر محادثة</p>
-                  <div class="header-with-logo">
-                    <div class="svg-container1">
-                      <svg viewBox="0 0 24 24" x="0" y="0" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <g id="CaretDown" data-node-id="7:264" xmlns="http://www.w3.org/2000/svg">
-                          <path id="Vector_2" data-node-id="I7:264;5577:144009" d="M20.296,9.796l-7.5,7.5c-0.105,0.105 -0.229,0.188 -0.366,0.245c-0.136,0.057 -0.283,0.086 -0.431,0.086c-0.148,0 -0.295,-0.029 -0.431,-0.086c-0.137,-0.057 -0.261,-0.14 -0.366,-0.245l-7.5,-7.5c-0.211,-0.211 -0.33,-0.498 -0.33,-0.797c0,-0.299 0.119,-0.585 0.33,-0.797c0.211,-0.211 0.498,-0.33 0.797,-0.33c0.299,0 0.586,0.119 0.797,0.33l6.704,6.704l6.704,-6.705c0.211,-0.211 0.498,-0.33 0.797,-0.33c0.299,0 0.585,0.119 0.797,0.33c0.211,0.212 0.33,0.498 0.33,0.797c0,0.299 -0.119,0.586 -0.33,0.797z" fill="currentColor" />
-                        </g>
-                      </svg>
-                    </div>
+          <div class="svg-container">
+            <button class="fa fa-edit" style="font-size:24px;color:#252627;
+                border: none;cursor: pointer;background-color:white; "></button>
+          </div>
+        </div>
+        <div class="dynamic-activity-container">
+          <div class="dynamic-activity-container1">
+            <!-- Repeated elements detected. These are rendered using loops & conditions in the React tab -->
+            <div class="dynamic-activity-section">
+              <div class="dynamic-content-section">
+                <p class="dynamic-content-heading">آخر محادثة</p>
+                <div class="header-with-logo">
+                  <div class="svg-container1">
+                    <svg viewBox="0 0 24 24" x="0" y="0" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <g id="CaretDown" data-node-id="7:264" xmlns="http://www.w3.org/2000/svg">
+                        <path id="Vector_2" data-node-id="I7:264;5577:144009"
+                          d="M20.296,9.796l-7.5,7.5c-0.105,0.105 -0.229,0.188 -0.366,0.245c-0.136,0.057 -0.283,0.086 -0.431,0.086c-0.148,0 -0.295,-0.029 -0.431,-0.086c-0.137,-0.057 -0.261,-0.14 -0.366,-0.245l-7.5,-7.5c-0.211,-0.211 -0.33,-0.498 -0.33,-0.797c0,-0.299 0.119,-0.585 0.33,-0.797c0.211,-0.211 0.498,-0.33 0.797,-0.33c0.299,0 0.586,0.119 0.797,0.33l6.704,6.704l6.704,-6.705c0.211,-0.211 0.498,-0.33 0.797,-0.33c0.299,0 0.585,0.119 0.797,0.33c0.211,0.212 0.33,0.498 0.33,0.797c0,0.299 -0.119,0.586 -0.33,0.797z"
+                          fill="currentColor" />
+                      </g>
+                    </svg>
                   </div>
-                </div>
-                <div class="activity-section">
-                  <ul>
-                    {% for activity in latest_activities %}
-                       <li>
-                            {{ activity }}
-                            <button onclick="copyToClipboard('{{ activity }}')">Copy</button>
-                        </li>
-                    {% endfor %}
-                 </ul>
                 </div>
               </div>
-              <div class="dynamic-activity-section">
-                <div class="dynamic-content-section">
-                  <p class="dynamic-content-heading">المفضلة</p>
-                  <div class="header-with-logo">
-                    <div class="svg-container1">
-                      <svg viewBox="0 0 24 24" x="0" y="0" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <g id="CaretDown_2" data-node-id="7:280" xmlns="http://www.w3.org/2000/svg">
-                          <path id="Vector_3" data-node-id="I7:280;5577:144009" d="M20.296,9.796l-7.5,7.5c-0.105,0.105 -0.229,0.188 -0.366,0.245c-0.136,0.057 -0.283,0.086 -0.431,0.086c-0.148,0 -0.295,-0.029 -0.431,-0.086c-0.137,-0.057 -0.261,-0.14 -0.366,-0.245l-7.5,-7.5c-0.211,-0.211 -0.33,-0.498 -0.33,-0.797c0,-0.299 0.119,-0.585 0.33,-0.797c0.211,-0.211 0.498,-0.33 0.797,-0.33c0.299,0 0.586,0.119 0.797,0.33l6.704,6.704l6.704,-6.705c0.211,-0.211 0.498,-0.33 0.797,-0.33c0.299,0 0.585,0.119 0.797,0.33c0.211,0.212 0.33,0.498 0.33,0.797c0,0.299 -0.119,0.586 -0.33,0.797z" fill="currentColor" />
-                        </g>
-                      </svg>
-                    </div>
-                  </div>
-                </div>
-                <div class="activity-section">
-                  <ul>
-                    {% for favorite in favorites %}
-                        <li>{{ favorite }}</li>
-                   {% endfor %}
-                  </ul>
-                </div>
+              <div class="activity-section">
+                <ul>
+                  {% for activity in latest_activities %}
+                  <li>
+                    {{ activity }}
+                    <button onclick="copyToClipboard('{{ activity }}')">Copy</button>
+                  </li>
+                  {% endfor %}
+                </ul>
+                <script>
+                  // function to copy text to clipboard
+                  function copyToClipboard(text) {
+                    navigator.clipboard
+                      .writeText(text)
+                      .then(() => {
+                        alert("Copied to clipboard: " + text);
+                      })
+                      .catch((error) => {
+                        console.error("Failed to copy text: ", error);
+                      });
+                  }
+                </script>
               </div>
             </div>
-            <div class="setting-container">
-              <div class="svg-container2">
-                <svg viewBox="0 0 32 32" x="0" y="0" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <defs>
-                    <clipPath id="clip1_7_251" xmlns="http://www.w3.org/2000/svg">
-                      <rect width="26" height="26" fill="white" transform="translate(3, 3)" />
-                    </clipPath>
-                  </defs>
-                </svg>
+            <div class="dynamic-activity-section">
+              <div class="dynamic-content-section">
+                <p class="dynamic-content-heading">المفضلة</p>
+                <div class="header-with-logo">
+                  <div class="svg-container1">
+                    <svg viewBox="0 0 24 24" x="0" y="0" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <g id="CaretDown_2" data-node-id="7:280" xmlns="http://www.w3.org/2000/svg">
+                        <path id="Vector_3" data-node-id="I7:280;5577:144009"
+                          d="M20.296,9.796l-7.5,7.5c-0.105,0.105 -0.229,0.188 -0.366,0.245c-0.136,0.057 -0.283,0.086 -0.431,0.086c-0.148,0 -0.295,-0.029 -0.431,-0.086c-0.137,-0.057 -0.261,-0.14 -0.366,-0.245l-7.5,-7.5c-0.211,-0.211 -0.33,-0.498 -0.33,-0.797c0,-0.299 0.119,-0.585 0.33,-0.797c0.211,-0.211 0.498,-0.33 0.797,-0.33c0.299,0 0.586,0.119 0.797,0.33l6.704,6.704l6.704,-6.705c0.211,-0.211 0.498,-0.33 0.797,-0.33c0.299,0 0.585,0.119 0.797,0.33c0.211,0.212 0.33,0.498 0.33,0.797c0,0.299 -0.119,0.586 -0.33,0.797z"
+                          fill="currentColor" />
+                      </g>
+                    </svg>
+                  </div>
+                </div>
               </div>
+              <div class="activity-section">
+                <ul>
+                  {% for favorite in favorites %}
+                  <li>{{ favorite }}</li>
+                  {% endfor %}
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="setting-container">
+            <div class="svg-container2">
+              <svg viewBox="0 0 32 32" x="0" y="0" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                  <clipPath id="clip1_7_251" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="26" height="26" fill="white" transform="translate(3, 3)" />
+                  </clipPath>
+                </defs>
+              </svg>
             </div>
           </div>
         </div>
-        <div class="main-content-section">
-          <div class="header-section1">
+      </div>
+      <div class="main-content-section">
+        <div class="header-section1">
+        </div>
+        <div class="divine-guide-container">
+          <div class="divine-message-container">
+            <span id="Welcome text1" class="arabic-heading-styles">أهلاً<br /></span><span class="radiant-text-heading">
+            </span><span id="Welcome text2" class="radiant-text">في اي درب قرآني تبحث عن الضياء؟<br />
+              دعني اكون دليلك</span>
+            <div id="messages"></div>
+            <form action="/chat" method="POST">
+              <div class="message-container">
+                <input id="welcome-message" class="message-input" type="text" placeholder="اسـأل ضِـياء" />
+                <button type="button" class="fa fa-microphone"
+                  style="font-size:25px;color:#09a6ae; border: none; cursor: pointer; background-color:white; height:30;"></button>
+                <button type="button" class="send-button">↑</button>
+              </div>
+            </form>
+            <script>
+              document.querySelector(".send-button").onclick = async () => {
+                const queryInput = document.querySelector(".message-input");
+                const query = queryInput.value.trim();
+                queryInput.style.visibility = "hidden";
+                document.getElementById("Welcome text1").style.visibility = "hidden";
+                document.getElementById("Welcome text2").style.visibility = "hidden";
+
+                if (!query) return; // Avoid sending empty messages
+
+                // Display the user's query
+                const userMessage = document.createElement("div");
+                userMessage.className = "message user";
+                userMessage.innerText = query;
+                document.getElementById("messages").appendChild(userMessage);
+
+                // Scroll to the latest message
+                document.getElementById("messages").scrollTop =
+                  document.getElementById("messages").scrollHeight;
+
+                // Send the query to the Flask backend
+                const response = await fetch("/chat", {
+                  method: "POST",
+                  headers: {
+                    "Content-Type": "application/x-www-form-urlencoded",
+                  },
+                  body: new URLSearchParams({ query: query }),
+                });
+
+                // Process the model's response
+                const result = await response.json();
+                const modelResponse = document.createElement("div");
+                modelResponse.className = "message model";
+                modelResponse.innerText = result.response;
+
+                // Display the model's response
+                document.getElementById("messages").appendChild(modelResponse);
+
+                // Scroll to the latest message
+                document.getElementById("messages").scrollTop =
+                  document.getElementById("messages").scrollHeight;
+
+                // Clear the input field
+                queryInput.value = "";
+
+                window.location.href = "http://127.0.0.1:5000";
+              };
+            </script>
           </div>
-          <div class="divine-guide-container">
-            <div class="divine-message-container">
-                <span id="Welcome text1" class="arabic-heading-styles">أهلاً<br /></span><span class="radiant-text-heading"> </span
-                ><span id="Welcome text2" class="radiant-text"
-                  >في اي درب قرآني تبحث عن الضياء؟<br />
-                  دعني اكون دليلك</span
-                >
-              <div id="messages"></div>
-              <form action="/chat" method="POST">
-                <div class="message-container">
-                  <input id="welcome-message" class="message-input" type="text" placeholder="اسـأل ضِـياء" />
-                  <button type="button" class="fa fa-microphone" style="font-size:25px;color:#09a6ae; border: none; cursor: pointer; background-color:white; height:30;"></button>
-                  <button type="button" class="send-button">↑</button>
-                </div>
-              </form>
-              <script>
-                document.querySelector(".send-button").onclick = async () => {
-  const queryInput = document.querySelector(".message-input");
-  const query = queryInput.value.trim();
-  queryInput.style.visibility = "hidden";
-  document.getElementById("Welcome text1").style.visibility = "hidden";
-  document.getElementById("Welcome text2").style.visibility = "hidden";
-
-  if (!query) return; // Avoid sending empty messages
-
-  // Display the user's query
-  const userMessage = document.createElement("div");
-  userMessage.className = "message user";
-  userMessage.innerText = query;
-  document.getElementById("messages").appendChild(userMessage);
-
-  // Scroll to the latest message
-  document.getElementById("messages").scrollTop =
-    document.getElementById("messages").scrollHeight;
-
-  // Send the query to the Flask backend
-  const response = await fetch("/chat", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/x-www-form-urlencoded",
-    },
-    body: new URLSearchParams({ query: query }),
-  });
-
-  // Process the model's response
-  const result = await response.json();
-  const modelResponse = document.createElement("div");
-  modelResponse.className = "message model";
-  modelResponse.innerText = result.response;
-
-  // Display the model's response
-  document.getElementById("messages").appendChild(modelResponse);
-
-  // Scroll to the latest message
-  document.getElementById("messages").scrollTop =
-    document.getElementById("messages").scrollHeight;
-
-  // Clear the input field
-  queryInput.value = "";
-
-  window.location.href = "http://127.0.0.1:5000"; 
-};
-              </script>                
-    </div>
-     </div>
+        </div>
+      </div>
     </div>
   </div>
-</div>
-</div>
+  </div>
 </body>
+
 </html>
