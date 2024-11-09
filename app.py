@@ -2,40 +2,48 @@ from flask import Flask, render_template, request, redirect, url_for, send_file,
 from flask import Flask
 from flask import render_template
 from flask import jsonify, request
+import json
 import os
 from gtts import gTTS
 import io
 import requests
 from ibm_watsonx_ai.foundation_models import Model
+# Your IBM API key
 api_key = "jspgZD3pEqGkZLopbOmam7NtabwFLznBotSZc8OafQZA"
 
-url = "https://iam.cloud.ibm.com/identity/token"
-headers = {"Content-Type": "application/x-www-form-urlencoded"}
-data = {
-    "apikey": api_key,
-    "grant_type": "urn:ibm:params:oauth:grant-type:apikey"
-}
-
-response = requests.post(url, headers=headers, data=data)
-if response.status_code == 200:
-    print(response.json())
-else:
-    print(f"Error: {response.status_code}")
-    print(response.text)
-res_format = response.json()
+# Step 1: Get the access token
 
 
+def get_access_token(api_key):
+    url = "https://iam.cloud.ibm.com/identity/token"
+    headers = {"Content-Type": "application/x-www-form-urlencoded"}
+    data = {
+        "apikey": api_key,
+        "grant_type": "urn:ibm:params:oauth:grant-type:apikey"
+    }
+
+    response = requests.post(url, headers=headers, data=data)
+    if response.status_code == 200:
+        return response.json().get("access_token")
+    else:
+        raise Exception(
+            f"Error retrieving token: {response.status_code} - {response.text}")
+
+
+# Step 2: Get model response
 def get_allam_response(user_query):
-   # access_token = get_access_token(api_key)
+    # Fetch token
+    access_token = get_access_token(api_key)
 
+    # Set endpoint URL
     url = "https://eu-de.ml.cloud.ibm.com/ml/v1/text/generation?version=2023-05-29"
     headers = {
         "Accept": "application/json",
         "Content-Type": "application/json",
-        "Authorization": f"Bearer {access_token}"
+        "Authorization": "Bearer eyJraWQiOiIyMDI0MTEwMTA4NDIiLCJhbGciOiJSUzI1NiJ9.eyJpYW1faWQiOiJJQk1pZC02OTUwMDBKRDUzIiwiaWQiOiJJQk1pZC02OTUwMDBKRDUzIiwicmVhbG1pZCI6IklCTWlkIiwianRpIjoiY2VmNDI3M2UtOWIyYi00NjFiLWIxYzktMjlmOTA2YmI0ZjFkIiwiaWRlbnRpZmllciI6IjY5NTAwMEpENTMiLCJnaXZlbl9uYW1lIjoiTXVqdGFiYSIsImZhbWlseV9uYW1lIjoiQWxtZXNoYWwiLCJuYW1lIjoiTXVqdGFiYSBBbG1lc2hhbCIsImVtYWlsIjoibXVqdGFiYWFsbWVzaGFsMjlAZ21haWwuY29tIiwic3ViIjoibXVqdGFiYWFsbWVzaGFsMjlAZ21haWwuY29tIiwiYXV0aG4iOnsic3ViIjoibXVqdGFiYWFsbWVzaGFsMjlAZ21haWwuY29tIiwiaWFtX2lkIjoiSUJNaWQtNjk1MDAwSkQ1MyIsIm5hbWUiOiJNdWp0YWJhIEFsbWVzaGFsIiwiZ2l2ZW5fbmFtZSI6Ik11anRhYmEiLCJmYW1pbHlfbmFtZSI6IkFsbWVzaGFsIiwiZW1haWwiOiJtdWp0YWJhYWxtZXNoYWwyOUBnbWFpbC5jb20ifSwiYWNjb3VudCI6eyJ2YWxpZCI6dHJ1ZSwiYnNzIjoiNTliMjk4Y2FkMTVkNDgxMWJiN2Q1M2I3YWNlN2Y3NWQiLCJpbXNfdXNlcl9pZCI6IjEyNjc3MjY3IiwiZnJvemVuIjp0cnVlLCJpbXMiOiIyNzQ5MTkyIn0sImlhdCI6MTczMTEzNTcxNCwiZXhwIjoxNzMxMTM5MzE0LCJpc3MiOiJodHRwczovL2lhbS5jbG91ZC5pYm0uY29tL2lkZW50aXR5IiwiZ3JhbnRfdHlwZSI6InVybjppYm06cGFyYW1zOm9hdXRoOmdyYW50LXR5cGU6YXBpa2V5Iiwic2NvcGUiOiJpYm0gb3BlbmlkIiwiY2xpZW50X2lkIjoiZGVmYXVsdCIsImFjciI6MSwiYW1yIjpbInB3ZCJdfQ.iicgbmipiIiwar9s_oziGiHuyrjQlHBi0Z14G_FoWvVme8F5fIn-cSni9DNO1PiHqpfygUByFU9SONW2971dfW_xaSAKfI9yxr-HyZJOwSggzaT6PcSjupdSHAMFPfKUUS5Z8kG0gckoTXsLYGmX5KdaOQeZhveMwfv0a9zU6tmocVkR9m8488zZL4K-D9S96ZeA-8sxEI_5yFSLLTD_rBVZXb1qxGzBblJJWZZZ4FrrN0seogDqRcJGMMZEfRb-hKPlmK6UkPwL3rc68PHWBDXi6jeEc-9xEJWwarO9SSG2-IxqqCJ_VE4mR_wiuOEzrKhMZKnuZ1qvrDxpdHcnQQ"
     }
 
-    # Prepare the request body with user input
+    # Request body with user input
     body = {
         "parameters": {
             "decoding_method": "greedy",
@@ -43,7 +51,7 @@ def get_allam_response(user_query):
             "min_new_tokens": 200,
             "repetition_penalty": 1
         },
-        "input": user_input,  # Include the user's input here
+        "input": user_query,
         "model_id": "sdaia/allam-1-13b-instruct",
         "project_id": "d18b772d-59a4-4fc0-983d-c194ddb3ca9b"
     }
@@ -51,15 +59,16 @@ def get_allam_response(user_query):
     # Make the request to the model
     response = requests.post(url, headers=headers, json=body)
 
-    # Check for a successful response
-    if response.status_code != 200:
-        raise Exception("Non-200 response: " + str(response.text))
+    if response.status_code == 200:
+        data = response.json()
+        # Adjust as per actual JSON response structure from IBM
+        return data.get("results", [{}])[0].get("generated_text", "No response from model")
+    else:
+        raise Exception(
+            f"Error from model API: {response.status_code} - {response.text}")
 
-    # Parse the JSON response and return the model's output
-    data = response.json()
-    # Assuming "generated_text" is the key for the model output
-    return data.get("generated_text", "No response from model")
 
+print(get_allam_response("فسر لي قوله تعالى  وَءَاتُواْ ٱلۡيَتَٰمَىٰٓ أَمۡوَٰلَهُمۡۖ وَلَا تَتَبَدَّلُواْ ٱلۡخَبِيثَ بِٱلطَّيِّبِۖ وَلَا تَأۡكُلُوٓاْ أَمۡوَٰلَهُمۡ إِلَىٰٓ أَمۡوَٰلِكُمۡۚ إِنَّهُۥ كَانَ حُوبٗا كَبِيرٗا (2) وَإِنۡ خِفۡتُمۡ أَلَّا تُقۡسِطُواْ فِي ٱلۡيَتَٰمَىٰ فَٱنكِحُواْ مَا طَابَ لَكُم مِّنَ ٱلنِّسَآءِ مَثۡنَىٰ وَثُلَٰثَ وَرُبَٰعَۖ فَإِنۡ خِفۡتُمۡ أَلَّا تَعۡدِلُواْ فَوَٰحِدَةً أَوۡ مَا مَلَكَتۡ أَيۡمَٰنُكُمۡۚ ذَٰلِكَ أَدۡنَىٰٓ أَلَّا تَعُولُواْ (3)"))
 
 app = Flask(__name__)
 
@@ -85,26 +94,30 @@ def chat():
     text_input = request.form.get('query')
     print('Text input:', text_input)
 
-    # Generate a response from the assistant (replace with your model code)
-    model_response = get_allam_response(text_input)
+    try:
+        # Generate a response from the assistant using get_allam_response
+        model_response = get_allam_response(text_input)
 
-    # Append a conversation entry to the activity log
-    conversation_entry = {
-        "message_input": f"You: {text_input}",
-        "model_response": model_response
-    }
-    latest_activities.append(conversation_entry)
+        # Append a conversation entry to the activity log
+        conversation_entry = {
+            "message_input": f"You: {text_input}",
+            "model_response": model_response
+        }
+        latest_activities.append(conversation_entry)
 
-    # Keep only the last 10 responses
-    if len(latest_activities) > 10:
-        latest_activities.pop(0)
+        # Keep only the last 10 responses
+        if len(latest_activities) > 10:
+            latest_activities.pop(0)
 
-    # Return the model's response as JSON
-    return jsonify({
-        "response": model_response,
-        # Optional: Return if you need to display them
-        "latest_activities": latest_activities
-    })
+        # Return the model's response as JSON
+        return jsonify({
+            "response": model_response,
+            "latest_activities": latest_activities
+        })
+
+    except Exception as e:
+        # Handle any exceptions and return an error response
+        return jsonify({"error": str(e)}), 500
 
 
 @app.route('/favorite', methods=['POST'])
