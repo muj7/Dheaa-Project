@@ -40,7 +40,7 @@ def get_allam_response(user_query):
     headers = {
         "Accept": "application/json",
         "Content-Type": "application/json",
-        "Authorization": "Bearer eyJraWQiOiIyMDI0MTEwMTA4NDIiLCJhbGciOiJSUzI1NiJ9.eyJpYW1faWQiOiJJQk1pZC02OTUwMDBKRDUzIiwiaWQiOiJJQk1pZC02OTUwMDBKRDUzIiwicmVhbG1pZCI6IklCTWlkIiwianRpIjoiZDllNTA4YmUtOWRhMi00MzlhLThlNDktNzIwMzQwMWU3YzBjIiwiaWRlbnRpZmllciI6IjY5NTAwMEpENTMiLCJnaXZlbl9uYW1lIjoiTXVqdGFiYSIsImZhbWlseV9uYW1lIjoiQWxtZXNoYWwiLCJuYW1lIjoiTXVqdGFiYSBBbG1lc2hhbCIsImVtYWlsIjoibXVqdGFiYWFsbWVzaGFsMjlAZ21haWwuY29tIiwic3ViIjoibXVqdGFiYWFsbWVzaGFsMjlAZ21haWwuY29tIiwiYXV0aG4iOnsic3ViIjoibXVqdGFiYWFsbWVzaGFsMjlAZ21haWwuY29tIiwiaWFtX2lkIjoiSUJNaWQtNjk1MDAwSkQ1MyIsIm5hbWUiOiJNdWp0YWJhIEFsbWVzaGFsIiwiZ2l2ZW5fbmFtZSI6Ik11anRhYmEiLCJmYW1pbHlfbmFtZSI6IkFsbWVzaGFsIiwiZW1haWwiOiJtdWp0YWJhYWxtZXNoYWwyOUBnbWFpbC5jb20ifSwiYWNjb3VudCI6eyJ2YWxpZCI6dHJ1ZSwiYnNzIjoiNTliMjk4Y2FkMTVkNDgxMWJiN2Q1M2I3YWNlN2Y3NWQiLCJpbXNfdXNlcl9pZCI6IjEyNjc3MjY3IiwiZnJvemVuIjp0cnVlLCJpbXMiOiIyNzQ5MTkyIn0sImlhdCI6MTczMTE1NjEyNCwiZXhwIjoxNzMxMTU5NzI0LCJpc3MiOiJodHRwczovL2lhbS5jbG91ZC5pYm0uY29tL2lkZW50aXR5IiwiZ3JhbnRfdHlwZSI6InVybjppYm06cGFyYW1zOm9hdXRoOmdyYW50LXR5cGU6YXBpa2V5Iiwic2NvcGUiOiJpYm0gb3BlbmlkIiwiY2xpZW50X2lkIjoiZGVmYXVsdCIsImFjciI6MSwiYW1yIjpbInB3ZCJdfQ.k7gnywkrxAy19DLP6OsUstjpNuBkgBLEcEyNNjVGEmrI_FoCadS6E-FNioBvWea-YbtSkuJE6m4XbPhuD4gvKEgKWdJx3WRZ7LJc8eyE5NhEstatKeSeI8IBRi2QiatbN5AFcRBqvHklpHHeFJhd7hixWrjf2DfGHUvkYvH7GrFKgnHfWupIDv0JvIZx-haoahcJi2ZVc6LKY3zrNqN1PEsbnJKgg65G0_x-lipRxWIkSA0ZTVrOjbrQ2ltz5o_fJquAaKebcPr0rkA32-u8cJMQXbFB1KJ7n0ltc7j_bF11P7eCqYsq9nFhQ2B-PNs0wleU_5__i9EE49Xz1UTXaQ"
+        "Authorization": "Bearer eyJraWQiOiIyMDI0MTEwMTA4NDIiLCJhbGciOiJSUzI1NiJ9.eyJpYW1faWQiOiJJQk1pZC02OTUwMDBKRDUzIiwiaWQiOiJJQk1pZC02OTUwMDBKRDUzIiwicmVhbG1pZCI6IklCTWlkIiwianRpIjoiZGY3MWFjNjUtYTFiMC00ZTU3LWIxYzAtYTQyNzEyOWU4OWJiIiwiaWRlbnRpZmllciI6IjY5NTAwMEpENTMiLCJnaXZlbl9uYW1lIjoiTXVqdGFiYSIsImZhbWlseV9uYW1lIjoiQWxtZXNoYWwiLCJuYW1lIjoiTXVqdGFiYSBBbG1lc2hhbCIsImVtYWlsIjoibXVqdGFiYWFsbWVzaGFsMjlAZ21haWwuY29tIiwic3ViIjoibXVqdGFiYWFsbWVzaGFsMjlAZ21haWwuY29tIiwiYXV0aG4iOnsic3ViIjoibXVqdGFiYWFsbWVzaGFsMjlAZ21haWwuY29tIiwiaWFtX2lkIjoiSUJNaWQtNjk1MDAwSkQ1MyIsIm5hbWUiOiJNdWp0YWJhIEFsbWVzaGFsIiwiZ2l2ZW5fbmFtZSI6Ik11anRhYmEiLCJmYW1pbHlfbmFtZSI6IkFsbWVzaGFsIiwiZW1haWwiOiJtdWp0YWJhYWxtZXNoYWwyOUBnbWFpbC5jb20ifSwiYWNjb3VudCI6eyJ2YWxpZCI6dHJ1ZSwiYnNzIjoiNTliMjk4Y2FkMTVkNDgxMWJiN2Q1M2I3YWNlN2Y3NWQiLCJpbXNfdXNlcl9pZCI6IjEyNjc3MjY3IiwiZnJvemVuIjp0cnVlLCJpbXMiOiIyNzQ5MTkyIn0sImlhdCI6MTczMTE2MDA0NCwiZXhwIjoxNzMxMTYzNjQ0LCJpc3MiOiJodHRwczovL2lhbS5jbG91ZC5pYm0uY29tL2lkZW50aXR5IiwiZ3JhbnRfdHlwZSI6InVybjppYm06cGFyYW1zOm9hdXRoOmdyYW50LXR5cGU6YXBpa2V5Iiwic2NvcGUiOiJpYm0gb3BlbmlkIiwiY2xpZW50X2lkIjoiZGVmYXVsdCIsImFjciI6MSwiYW1yIjpbInB3ZCJdfQ.AckG3r8iWqs8_1Z8LwqO13Sn1kgyyJn7D3VOmg3GEju3U9VvfT840GrYGQ6PR-Seasl9sagYGLHCUmILy_XDEP30E14mK1UFXCjhMCycqvzGMz1pjVsO6XcnI9egBLOPLd1OE0w0pW9qajTYZztBbzRv6tyE7OYMk2NEv3yrgcErjbURyrxO7_FFSmSxSZsVSOSzRrQjBHhevr8DvKGKuqqaec6vlNw6uzawMlLn2xo31fjeI6_N-uZQldmootBSTq4X7_-Pplg83rvcorNFlwmrHIiToFEVX8t8vzGeGe-S8R4I7E3zpNY8iYskMKi9NyFo4DHFStlNRHqHde_z8A"
     }
 
     # Request body with user input
@@ -92,7 +92,7 @@ favorites = []
 def chat():
     # Retrieve user input from the form data
     text_input = request.form.get('query')
-    print('Text input:', text_input)
+    # print('Text input:', text_input)
 
     try:
         # Generate a response from the assistant using get_allam_response
@@ -100,8 +100,8 @@ def chat():
 
         # Append a conversation entry to the activity log
         conversation_entry = {
-            "message_input": text_input.replace("You: ", ""),
-            "model_response": model_response.replace("model_response:", "")
+            "message_input": "سؤالك: " + text_input.replace("You: ", "").replace("{", "").replace("}", "").replace("\n", "").strip(),
+            "model_response": "رد ضياء: " + model_response.replace("model_response:", "").replace("{", "").replace("}", "").replace("\n", "").strip()
         }
         latest_activities.append(conversation_entry)
 
