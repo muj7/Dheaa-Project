@@ -65,7 +65,7 @@ Start the Flask Application:
 bash
 Copy code
 python app.py
-Open your web browser and navigate to http://127.0.0.1:5000 to access Dheaa on your local machine.
+In bash terminal "flask run" then open your web browser and navigate to http://127.0.0.1:5000 to access Dheaa on your local machine.
 Enter the Quranic verse you want to interpret, and Dheaa will generate a comprehensive interpretation based on the structured tafsir method.
 Configuration
 If any configuration is required, update the config.py file with parameters such as:
